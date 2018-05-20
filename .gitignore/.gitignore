@@ -52,6 +52,7 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+# CMake Directories and Files Ignore
 CMakeCache.txt
 CMakeFiles
 CMakeScripts
@@ -61,3 +62,6 @@ cmake_install.cmake
 install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
+
+#Ignore Directories Results
+outDirNewUmbral
