@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/administrador/frameworks/midas-journal-800-master/Examples/MultiImageRegistration.cxx" "/home/administrador/frameworks/midas-journal-800-master/build/CMakeFiles/MultiImageRegistration.dir/Examples/MultiImageRegistration.cxx.o"
+  "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/Examples/MultiImageRegistration.cxx" "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/MultiImageRegistration.dir/Examples/MultiImageRegistration.cxx.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
