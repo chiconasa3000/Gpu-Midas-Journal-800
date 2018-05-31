@@ -198,11 +198,7 @@ itkNumericTraits.h
 itkPatternIntensityMultiImageToImageMetric.h
 ../itkPatternIntensityMultiImageToImageMetric.h
 
-<<<<<<< HEAD
-/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/Examples/MultiImageSearch.cxx
-=======
 /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/Examples/MultiImageSearch.cxx
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
 itkCommand.h
 -
 itkImage.h
@@ -216,17 +212,6 @@ itkExhaustiveOptimizer.h
 itkTranslationTransform.h
 -
 itkGradientDifferenceMultiImageToImageMetric.h
-<<<<<<< HEAD
-/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/Examples/itkGradientDifferenceMultiImageToImageMetric.h
-itkNormalizedGradientCorrelationMultiImageToImageMetric.h
-/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/Examples/itkNormalizedGradientCorrelationMultiImageToImageMetric.h
-itkPatternIntensityMultiImageToImageMetric.h
-/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/Examples/itkPatternIntensityMultiImageToImageMetric.h
-itkMultiResolutionMultiImageToImageRegistrationMethod.h
-/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/Examples/itkMultiResolutionMultiImageToImageRegistrationMethod.h
-itkPatchedRayCastInterpolateImageFunction.h
-/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/Examples/itkPatchedRayCastInterpolateImageFunction.h
-=======
 /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/Examples/itkGradientDifferenceMultiImageToImageMetric.h
 itkNormalizedGradientCorrelationMultiImageToImageMetric.h
 /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/Examples/itkNormalizedGradientCorrelationMultiImageToImageMetric.h
@@ -236,7 +221,6 @@ itkMultiResolutionMultiImageToImageRegistrationMethod.h
 /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/Examples/itkMultiResolutionMultiImageToImageRegistrationMethod.h
 itkPatchedRayCastInterpolateImageFunction.h
 /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/Examples/itkPatchedRayCastInterpolateImageFunction.h
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
 vector
 -
 sstream

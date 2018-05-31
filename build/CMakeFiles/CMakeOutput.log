@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-The system is: Linux - 4.13.0-43-generic - x86_64
-=======
 The system is: Linux - 4.15.0-22-generic - x86_64
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
 Compiler: /usr/bin/cc 
 Build flags: 
@@ -14,11 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-<<<<<<< HEAD
-The C compiler identification is GNU, found in "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/3.9.1/CompilerIdC/a.out"
-=======
 The C compiler identification is GNU, found in "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/3.10.2/CompilerIdC/a.out"
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/c++ 
@@ -31,145 +23,76 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-<<<<<<< HEAD
-The CXX compiler identification is GNU, found in "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/3.9.1/CompilerIdCXX/a.out"
-
-Determining if the C compiler works passed with the following output:
-Change Dir: /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_eb10a/fast"
-/usr/bin/make -f CMakeFiles/cmTC_eb10a.dir/build.make CMakeFiles/cmTC_eb10a.dir/build
-make[1]: Entering directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_eb10a.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_eb10a.dir/testCCompiler.c.o   -c /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_eb10a
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eb10a.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_eb10a.dir/testCCompiler.c.o  -o cmTC_eb10a 
-make[1]: Leaving directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-
-
-Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_676a0/fast"
-/usr/bin/make -f CMakeFiles/cmTC_676a0.dir/build.make CMakeFiles/cmTC_676a0.dir/build
-make[1]: Entering directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_676a0.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_676a0.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.9/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_676a0
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_676a0.dir/link.txt --verbose=1
-/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_676a0.dir/CMakeCCompilerABI.c.o  -o cmTC_676a0 
-=======
 The CXX compiler identification is GNU, found in "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/3.10.2/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_51736/fast"
-/usr/bin/make -f CMakeFiles/cmTC_51736.dir/build.make CMakeFiles/cmTC_51736.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_711b7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_711b7.dir/build.make CMakeFiles/cmTC_711b7.dir/build
 make[1]: se entra en el directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_51736.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_51736.dir/testCCompiler.c.o   -c /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_51736
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_51736.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_51736.dir/testCCompiler.c.o  -o cmTC_51736 
+Building C object CMakeFiles/cmTC_711b7.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_711b7.dir/testCCompiler.c.o   -c /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_711b7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_711b7.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_711b7.dir/testCCompiler.c.o  -o cmTC_711b7 
 make[1]: se sale del directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_614f9/fast"
-/usr/bin/make -f CMakeFiles/cmTC_614f9.dir/build.make CMakeFiles/cmTC_614f9.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_dfa0f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_dfa0f.dir/build.make CMakeFiles/cmTC_dfa0f.dir/build
 make[1]: se entra en el directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_614f9.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_614f9.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_614f9
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_614f9.dir/link.txt --verbose=1
-/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_614f9.dir/CMakeCCompilerABI.c.o  -o cmTC_614f9 
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
+Building C object CMakeFiles/cmTC_dfa0f.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_dfa0f.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_dfa0f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dfa0f.dir/link.txt --verbose=1
+/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_dfa0f.dir/CMakeCCompilerABI.c.o  -o cmTC_dfa0f 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper
 Target: x86_64-linux-gnu
-<<<<<<< HEAD
-Configured with: ../src/configure -v --with-pkgversion='Ubuntu 6.4.0-8ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-6/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-6 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-6-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-6-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-6-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
-Thread model: posix
-gcc version 6.4.0 20171010 (Ubuntu 6.4.0-8ubuntu1) 
-COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/
-LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_676a0' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/6/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper -plugin-opt=-fresolution=/tmp/cczbjihb.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_676a0 /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/6/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/6 -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/6/../../.. CMakeFiles/cmTC_676a0.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/6/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_676a0' '-mtune=generic' '-march=x86-64'
-make[1]: Leaving directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-=======
 Configured with: ../src/configure -v --with-pkgversion='Ubuntu 6.4.0-17ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-6/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++ --prefix=/usr --with-as=/usr/bin/x86_64-linux-gnu-as --with-ld=/usr/bin/x86_64-linux-gnu-ld --program-suffix=-6 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
 Thread model: posix
 gcc version 6.4.0 20180424 (Ubuntu 6.4.0-17ubuntu1) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_614f9' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/6/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper -plugin-opt=-fresolution=/tmp/cczxb6Fo.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_614f9 /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/6/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/6 -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/6/../../.. CMakeFiles/cmTC_614f9.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/6/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_614f9' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_dfa0f' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/6/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper -plugin-opt=-fresolution=/tmp/ccD1VzHh.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_dfa0f /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/6/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/6 -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/6/../../.. CMakeFiles/cmTC_dfa0f.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/6/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_dfa0f' '-mtune=generic' '-march=x86-64'
 make[1]: se sale del directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-<<<<<<< HEAD
-  ignore line: [Change Dir: /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp]
-  ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_676a0/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_676a0.dir/build.make CMakeFiles/cmTC_676a0.dir/build]
-  ignore line: [make[1]: Entering directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_676a0.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_676a0.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.9/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_676a0]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_676a0.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_676a0.dir/CMakeCCompilerABI.c.o  -o cmTC_676a0 ]
-=======
   ignore line: [Change Dir: /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_614f9/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_614f9.dir/build.make CMakeFiles/cmTC_614f9.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_dfa0f/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_dfa0f.dir/build.make CMakeFiles/cmTC_dfa0f.dir/build]
   ignore line: [make[1]: se entra en el directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_614f9.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_614f9.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_614f9]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_614f9.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_614f9.dir/CMakeCCompilerABI.c.o  -o cmTC_614f9 ]
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
+  ignore line: [Building C object CMakeFiles/cmTC_dfa0f.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_dfa0f.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_dfa0f]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dfa0f.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_dfa0f.dir/CMakeCCompilerABI.c.o  -o cmTC_dfa0f ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper]
   ignore line: [Target: x86_64-linux-gnu]
-<<<<<<< HEAD
-  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 6.4.0-8ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-6/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-6 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-6-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-6-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-6-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
-  ignore line: [Thread model: posix]
-  ignore line: [gcc version 6.4.0 20171010 (Ubuntu 6.4.0-8ubuntu1) ]
-  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/]
-  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_676a0' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/6/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper -plugin-opt=-fresolution=/tmp/cczbjihb.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_676a0 /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/6/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/6 -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/6/../../.. CMakeFiles/cmTC_676a0.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/6/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crtn.o]
-=======
   ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 6.4.0-17ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-6/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++ --prefix=/usr --with-as=/usr/bin/x86_64-linux-gnu-as --with-ld=/usr/bin/x86_64-linux-gnu-ld --program-suffix=-6 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
   ignore line: [Thread model: posix]
   ignore line: [gcc version 6.4.0 20180424 (Ubuntu 6.4.0-17ubuntu1) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_614f9' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/6/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper -plugin-opt=-fresolution=/tmp/cczxb6Fo.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_614f9 /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/6/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/6 -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/6/../../.. CMakeFiles/cmTC_614f9.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/6/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crtn.o]
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_dfa0f' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/6/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper -plugin-opt=-fresolution=/tmp/ccD1VzHh.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_dfa0f /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/6/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/6 -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/6/../../.. CMakeFiles/cmTC_dfa0f.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/6/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/6/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/6/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper] ==> ignore
-<<<<<<< HEAD
-    arg [-plugin-opt=-fresolution=/tmp/cczbjihb.res] ==> ignore
-=======
-    arg [-plugin-opt=-fresolution=/tmp/cczxb6Fo.res] ==> ignore
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
+    arg [-plugin-opt=-fresolution=/tmp/ccD1VzHh.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -189,11 +112,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-<<<<<<< HEAD
-    arg [cmTC_676a0] ==> ignore
-=======
-    arg [cmTC_614f9] ==> ignore
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
+    arg [cmTC_dfa0f] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/6/crtbeginS.o] ==> ignore
@@ -205,24 +124,18 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/6/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/6/../../..]
-<<<<<<< HEAD
-    arg [CMakeFiles/cmTC_676a0.dir/CMakeCCompilerABI.c.o] ==> ignore
-=======
-    arg [CMakeFiles/cmTC_614f9.dir/CMakeCCompilerABI.c.o] ==> ignore
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
+    arg [CMakeFiles/cmTC_dfa0f.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
-    arg [--no-as-needed] ==> ignore
+    arg [--pop-state] ==> ignore
     arg [-lc] ==> lib [c]
     arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
-<<<<<<< HEAD
-    arg [--no-as-needed] ==> ignore
-=======
     arg [--pop-state] ==> ignore
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
     arg [/usr/lib/gcc/x86_64-linux-gnu/6/crtendS.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crtn.o] ==> ignore
   collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/6] ==> [/usr/lib/gcc/x86_64-linux-gnu/6]
@@ -241,31 +154,17 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-<<<<<<< HEAD
-Change Dir: /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_e1afe/fast"
-/usr/bin/make -f CMakeFiles/cmTC_e1afe.dir/build.make CMakeFiles/cmTC_e1afe.dir/build
-make[1]: Entering directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_e1afe.dir/feature_tests.c.o
-/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_e1afe.dir/feature_tests.c.o   -c /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_e1afe
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e1afe.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_e1afe.dir/feature_tests.c.o  -o cmTC_e1afe 
-make[1]: Leaving directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-=======
 Change Dir: /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_5eed6/fast"
-/usr/bin/make -f CMakeFiles/cmTC_5eed6.dir/build.make CMakeFiles/cmTC_5eed6.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_bc675/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bc675.dir/build.make CMakeFiles/cmTC_bc675.dir/build
 make[1]: se entra en el directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_5eed6.dir/feature_tests.c.o
-/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_5eed6.dir/feature_tests.c.o   -c /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_5eed6
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5eed6.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_5eed6.dir/feature_tests.c.o  -o cmTC_5eed6 
+Building C object CMakeFiles/cmTC_bc675.dir/feature_tests.c.o
+/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_bc675.dir/feature_tests.c.o   -c /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_bc675
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bc675.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_bc675.dir/feature_tests.c.o  -o cmTC_bc675 
 make[1]: se sale del directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -275,31 +174,17 @@ make[1]: se sale del directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-8
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-<<<<<<< HEAD
-Change Dir: /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_06829/fast"
-/usr/bin/make -f CMakeFiles/cmTC_06829.dir/build.make CMakeFiles/cmTC_06829.dir/build
-make[1]: Entering directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_06829.dir/feature_tests.c.o
-/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_06829.dir/feature_tests.c.o   -c /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_06829
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_06829.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_06829.dir/feature_tests.c.o  -o cmTC_06829 
-make[1]: Leaving directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-=======
 Change Dir: /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_8b801/fast"
-/usr/bin/make -f CMakeFiles/cmTC_8b801.dir/build.make CMakeFiles/cmTC_8b801.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_c7c45/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c7c45.dir/build.make CMakeFiles/cmTC_c7c45.dir/build
 make[1]: se entra en el directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_8b801.dir/feature_tests.c.o
-/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_8b801.dir/feature_tests.c.o   -c /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_8b801
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8b801.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_8b801.dir/feature_tests.c.o  -o cmTC_8b801 
+Building C object CMakeFiles/cmTC_c7c45.dir/feature_tests.c.o
+/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_c7c45.dir/feature_tests.c.o   -c /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_c7c45
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c7c45.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_c7c45.dir/feature_tests.c.o  -o cmTC_c7c45 
 make[1]: se sale del directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -309,31 +194,17 @@ make[1]: se sale del directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-8
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-<<<<<<< HEAD
-Change Dir: /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_31d41/fast"
-/usr/bin/make -f CMakeFiles/cmTC_31d41.dir/build.make CMakeFiles/cmTC_31d41.dir/build
-make[1]: Entering directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_31d41.dir/feature_tests.c.o
-/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_31d41.dir/feature_tests.c.o   -c /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_31d41
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_31d41.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_31d41.dir/feature_tests.c.o  -o cmTC_31d41 
-make[1]: Leaving directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-=======
 Change Dir: /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_3ece1/fast"
-/usr/bin/make -f CMakeFiles/cmTC_3ece1.dir/build.make CMakeFiles/cmTC_3ece1.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_99385/fast"
+/usr/bin/make -f CMakeFiles/cmTC_99385.dir/build.make CMakeFiles/cmTC_99385.dir/build
 make[1]: se entra en el directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_3ece1.dir/feature_tests.c.o
-/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_3ece1.dir/feature_tests.c.o   -c /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_3ece1
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3ece1.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_3ece1.dir/feature_tests.c.o  -o cmTC_3ece1 
+Building C object CMakeFiles/cmTC_99385.dir/feature_tests.c.o
+/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_99385.dir/feature_tests.c.o   -c /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_99385
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_99385.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_99385.dir/feature_tests.c.o  -o cmTC_99385 
 make[1]: se sale del directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -341,139 +212,73 @@ make[1]: se sale del directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-8
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-<<<<<<< HEAD
-Change Dir: /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_48421/fast"
-/usr/bin/make -f CMakeFiles/cmTC_48421.dir/build.make CMakeFiles/cmTC_48421.dir/build
-make[1]: Entering directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_48421.dir/testCXXCompiler.cxx.o
-/usr/bin/c++     -o CMakeFiles/cmTC_48421.dir/testCXXCompiler.cxx.o -c /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_48421
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_48421.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_48421.dir/testCXXCompiler.cxx.o  -o cmTC_48421 
-make[1]: Leaving directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-
-
-Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_65424/fast"
-/usr/bin/make -f CMakeFiles/cmTC_65424.dir/build.make CMakeFiles/cmTC_65424.dir/build
-make[1]: Entering directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_65424.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++     -o CMakeFiles/cmTC_65424.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.9/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_65424
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_65424.dir/link.txt --verbose=1
-/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_65424.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_65424 
-=======
 Change Dir: /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_e91ec/fast"
-/usr/bin/make -f CMakeFiles/cmTC_e91ec.dir/build.make CMakeFiles/cmTC_e91ec.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_cece4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_cece4.dir/build.make CMakeFiles/cmTC_cece4.dir/build
 make[1]: se entra en el directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_e91ec.dir/testCXXCompiler.cxx.o
-/usr/bin/c++     -o CMakeFiles/cmTC_e91ec.dir/testCXXCompiler.cxx.o -c /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_e91ec
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e91ec.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_e91ec.dir/testCXXCompiler.cxx.o  -o cmTC_e91ec 
+Building CXX object CMakeFiles/cmTC_cece4.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_cece4.dir/testCXXCompiler.cxx.o -c /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_cece4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cece4.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_cece4.dir/testCXXCompiler.cxx.o  -o cmTC_cece4 
 make[1]: se sale del directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_0481b/fast"
-/usr/bin/make -f CMakeFiles/cmTC_0481b.dir/build.make CMakeFiles/cmTC_0481b.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_98af5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_98af5.dir/build.make CMakeFiles/cmTC_98af5.dir/build
 make[1]: se entra en el directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_0481b.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++     -o CMakeFiles/cmTC_0481b.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_0481b
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0481b.dir/link.txt --verbose=1
-/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_0481b.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_0481b 
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
+Building CXX object CMakeFiles/cmTC_98af5.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTC_98af5.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_98af5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_98af5.dir/link.txt --verbose=1
+/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_98af5.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_98af5 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper
 Target: x86_64-linux-gnu
-<<<<<<< HEAD
-Configured with: ../src/configure -v --with-pkgversion='Ubuntu 6.4.0-8ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-6/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-6 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-6-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-6-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-6-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
-Thread model: posix
-gcc version 6.4.0 20171010 (Ubuntu 6.4.0-8ubuntu1) 
-COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/
-LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_65424' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/6/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper -plugin-opt=-fresolution=/tmp/ccBjhI1N.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_65424 /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/6/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/6 -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/6/../../.. CMakeFiles/cmTC_65424.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/6/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_65424' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-make[1]: Leaving directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-=======
 Configured with: ../src/configure -v --with-pkgversion='Ubuntu 6.4.0-17ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-6/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++ --prefix=/usr --with-as=/usr/bin/x86_64-linux-gnu-as --with-ld=/usr/bin/x86_64-linux-gnu-ld --program-suffix=-6 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
 Thread model: posix
 gcc version 6.4.0 20180424 (Ubuntu 6.4.0-17ubuntu1) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_0481b' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/6/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper -plugin-opt=-fresolution=/tmp/ccZRbg8Q.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_0481b /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/6/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/6 -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/6/../../.. CMakeFiles/cmTC_0481b.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/6/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_0481b' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_98af5' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/6/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper -plugin-opt=-fresolution=/tmp/cca9XsYE.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_98af5 /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/6/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/6 -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/6/../../.. CMakeFiles/cmTC_98af5.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/6/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_98af5' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
 make[1]: se sale del directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-<<<<<<< HEAD
-  ignore line: [Change Dir: /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp]
-  ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_65424/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_65424.dir/build.make CMakeFiles/cmTC_65424.dir/build]
-  ignore line: [make[1]: Entering directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_65424.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_65424.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.9/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_65424]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_65424.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_65424.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_65424 ]
-=======
   ignore line: [Change Dir: /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_0481b/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_0481b.dir/build.make CMakeFiles/cmTC_0481b.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_98af5/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_98af5.dir/build.make CMakeFiles/cmTC_98af5.dir/build]
   ignore line: [make[1]: se entra en el directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_0481b.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_0481b.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_0481b]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0481b.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_0481b.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_0481b ]
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
+  ignore line: [Building CXX object CMakeFiles/cmTC_98af5.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_98af5.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_98af5]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_98af5.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_98af5.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_98af5 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper]
   ignore line: [Target: x86_64-linux-gnu]
-<<<<<<< HEAD
-  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 6.4.0-8ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-6/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-6 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-6-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-6-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-6-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
-  ignore line: [Thread model: posix]
-  ignore line: [gcc version 6.4.0 20171010 (Ubuntu 6.4.0-8ubuntu1) ]
-  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/]
-  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_65424' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/6/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper -plugin-opt=-fresolution=/tmp/ccBjhI1N.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_65424 /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/6/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/6 -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/6/../../.. CMakeFiles/cmTC_65424.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/6/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crtn.o]
-=======
   ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 6.4.0-17ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-6/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++ --prefix=/usr --with-as=/usr/bin/x86_64-linux-gnu-as --with-ld=/usr/bin/x86_64-linux-gnu-ld --program-suffix=-6 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
   ignore line: [Thread model: posix]
   ignore line: [gcc version 6.4.0 20180424 (Ubuntu 6.4.0-17ubuntu1) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_0481b' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/6/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper -plugin-opt=-fresolution=/tmp/ccZRbg8Q.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_0481b /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/6/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/6 -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/6/../../.. CMakeFiles/cmTC_0481b.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/6/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crtn.o]
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_98af5' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/6/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper -plugin-opt=-fresolution=/tmp/cca9XsYE.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_98af5 /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/6/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/6 -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/6/../../.. CMakeFiles/cmTC_98af5.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/6/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/6/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/6/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper] ==> ignore
-<<<<<<< HEAD
-    arg [-plugin-opt=-fresolution=/tmp/ccBjhI1N.res] ==> ignore
-=======
-    arg [-plugin-opt=-fresolution=/tmp/ccZRbg8Q.res] ==> ignore
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
+    arg [-plugin-opt=-fresolution=/tmp/cca9XsYE.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -493,11 +298,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-<<<<<<< HEAD
-    arg [cmTC_65424] ==> ignore
-=======
-    arg [cmTC_0481b] ==> ignore
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
+    arg [cmTC_98af5] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/6/crtbeginS.o] ==> ignore
@@ -509,11 +310,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/6/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/6/../../..]
-<<<<<<< HEAD
-    arg [CMakeFiles/cmTC_65424.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
-=======
-    arg [CMakeFiles/cmTC_0481b.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
+    arg [CMakeFiles/cmTC_98af5.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -539,31 +336,17 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
-<<<<<<< HEAD
-Change Dir: /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_e9efa/fast"
-/usr/bin/make -f CMakeFiles/cmTC_e9efa.dir/build.make CMakeFiles/cmTC_e9efa.dir/build
-make[1]: Entering directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_e9efa.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_e9efa.dir/feature_tests.cxx.o -c /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_e9efa
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e9efa.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_e9efa.dir/feature_tests.cxx.o  -o cmTC_e9efa 
-make[1]: Leaving directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-=======
 Change Dir: /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_9a12e/fast"
-/usr/bin/make -f CMakeFiles/cmTC_9a12e.dir/build.make CMakeFiles/cmTC_9a12e.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_2a6d8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2a6d8.dir/build.make CMakeFiles/cmTC_2a6d8.dir/build
 make[1]: se entra en el directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_9a12e.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_9a12e.dir/feature_tests.cxx.o -c /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_9a12e
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9a12e.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_9a12e.dir/feature_tests.cxx.o  -o cmTC_9a12e 
+Building CXX object CMakeFiles/cmTC_2a6d8.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_2a6d8.dir/feature_tests.cxx.o -c /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_2a6d8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2a6d8.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_2a6d8.dir/feature_tests.cxx.o  -o cmTC_2a6d8 
 make[1]: se sale del directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -626,31 +409,17 @@ make[1]: se sale del directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-8
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-<<<<<<< HEAD
-Change Dir: /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_fa462/fast"
-/usr/bin/make -f CMakeFiles/cmTC_fa462.dir/build.make CMakeFiles/cmTC_fa462.dir/build
-make[1]: Entering directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_fa462.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_fa462.dir/feature_tests.cxx.o -c /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_fa462
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fa462.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_fa462.dir/feature_tests.cxx.o  -o cmTC_fa462 
-make[1]: Leaving directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-=======
 Change Dir: /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_5cbac/fast"
-/usr/bin/make -f CMakeFiles/cmTC_5cbac.dir/build.make CMakeFiles/cmTC_5cbac.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_1b7ba/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1b7ba.dir/build.make CMakeFiles/cmTC_1b7ba.dir/build
 make[1]: se entra en el directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_5cbac.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_5cbac.dir/feature_tests.cxx.o -c /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_5cbac
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5cbac.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_5cbac.dir/feature_tests.cxx.o  -o cmTC_5cbac 
+Building CXX object CMakeFiles/cmTC_1b7ba.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_1b7ba.dir/feature_tests.cxx.o -c /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_1b7ba
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1b7ba.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_1b7ba.dir/feature_tests.cxx.o  -o cmTC_1b7ba 
 make[1]: se sale del directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -713,31 +482,17 @@ make[1]: se sale del directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-8
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-<<<<<<< HEAD
-Change Dir: /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_c3d86/fast"
-/usr/bin/make -f CMakeFiles/cmTC_c3d86.dir/build.make CMakeFiles/cmTC_c3d86.dir/build
-make[1]: Entering directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_c3d86.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_c3d86.dir/feature_tests.cxx.o -c /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_c3d86
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c3d86.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_c3d86.dir/feature_tests.cxx.o  -o cmTC_c3d86 
-make[1]: Leaving directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-=======
 Change Dir: /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_932d5/fast"
-/usr/bin/make -f CMakeFiles/cmTC_932d5.dir/build.make CMakeFiles/cmTC_932d5.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_3ed49/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3ed49.dir/build.make CMakeFiles/cmTC_3ed49.dir/build
 make[1]: se entra en el directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_932d5.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_932d5.dir/feature_tests.cxx.o -c /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_932d5
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_932d5.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_932d5.dir/feature_tests.cxx.o  -o cmTC_932d5 
+Building CXX object CMakeFiles/cmTC_3ed49.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_3ed49.dir/feature_tests.cxx.o -c /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_3ed49
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3ed49.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_3ed49.dir/feature_tests.cxx.o  -o cmTC_3ed49 
 make[1]: se sale del directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -800,31 +555,17 @@ make[1]: se sale del directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-8
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-<<<<<<< HEAD
-Change Dir: /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_4b99b/fast"
-/usr/bin/make -f CMakeFiles/cmTC_4b99b.dir/build.make CMakeFiles/cmTC_4b99b.dir/build
-make[1]: Entering directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_4b99b.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_4b99b.dir/feature_tests.cxx.o -c /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_4b99b
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4b99b.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_4b99b.dir/feature_tests.cxx.o  -o cmTC_4b99b 
-make[1]: Leaving directory '/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-=======
 Change Dir: /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a3567/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a3567.dir/build.make CMakeFiles/cmTC_a3567.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_f02ab/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f02ab.dir/build.make CMakeFiles/cmTC_f02ab.dir/build
 make[1]: se entra en el directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_a3567.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_a3567.dir/feature_tests.cxx.o -c /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_a3567
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a3567.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_a3567.dir/feature_tests.cxx.o  -o cmTC_a3567 
+Building CXX object CMakeFiles/cmTC_f02ab.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_f02ab.dir/feature_tests.cxx.o -c /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_f02ab
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f02ab.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_f02ab.dir/feature_tests.cxx.o  -o cmTC_f02ab 
 make[1]: se sale del directorio '/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/CMakeTmp'
->>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers

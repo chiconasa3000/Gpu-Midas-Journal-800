@@ -531,22 +531,14 @@ int main(int argc, char* argv[] )
 
     std::stringstream strStream;
     strStream << outDir << "/projection";
-    /*for(unsigned int ff=0; ff<FImgTotal; ff++){
-	strStream.width(9);
-    	strStream << "_"<< vfocalPoint[ff][0] <<"_"<<vfocalPoint[ff][1]<<"_"<<vfocalPoint[ff][2];
-    }
-    strStream.width(2);
-    strStream << "_" << ResolutionLevels;
-    strStream.width(6);
-    strStream <<"_"<<schedulesScales[0]<<"_"<<schedulesScales[1]<<"_"<<schedulesScales[2];
+    
+    //impresion del punto focal
+    strStream.width(9);
+    strStream << "_"<< vfocalPoint[f][0] <<"_"<<vfocalPoint[f][1]<<"_"<<vfocalPoint[f][2];
+
+    //impresion Resolutions Levels, schedules, optimizer->GetStepLength optimizer->GetStepTolerance
     strStream.width(3);
-    strStream.fill('0');
-    strStream << std::left <<"_"<<optimizer->GetStepLength();
-    strStream.width(3);
-    strStream.fill('0');
-    strStream << std::left <<"_"<<optimizer->GetStepTolerance();*/
-    strStream.width(2);
-    strStream.fill('0');
+    strStream.fill('FF');
     strStream << f;
     strStream.width(0);
     strStream << ".mha";

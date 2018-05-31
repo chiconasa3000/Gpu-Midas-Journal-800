@@ -6,27 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/ImageCompare.cxx
+/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/ImageCompare.cxx
 itkWin32Header.h
-/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkWin32Header.h
+/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkWin32Header.h
 iostream
 -
 fstream
 -
 itkNumericTraits.h
-/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkNumericTraits.h
+/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkNumericTraits.h
 itkImage.h
-/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkImage.h
+/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkImage.h
 itkImageFileReader.h
-/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkImageFileReader.h
+/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkImageFileReader.h
 itkImageFileWriter.h
-/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkImageFileWriter.h
+/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkImageFileWriter.h
 itkRescaleIntensityImageFilter.h
-/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkRescaleIntensityImageFilter.h
+/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkRescaleIntensityImageFilter.h
 itkExtractImageFilter.h
-/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkExtractImageFilter.h
+/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkExtractImageFilter.h
 itkTestingComparisonImageFilter.h
-/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkTestingComparisonImageFilter.h
+/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkTestingComparisonImageFilter.h
 
 /usr/local/include/ITK-4.13/ITKCommonExport.h
 

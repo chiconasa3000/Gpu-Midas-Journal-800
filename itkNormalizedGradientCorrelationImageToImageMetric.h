@@ -89,10 +89,10 @@ public:
 
   //typename GPUInputImage::Pointer ptrGpuInputImage;
   //el pointer no es tuyo
-  typedef SmartPointer<GPUInputImage> myPointer;
-  typedef SmartPointer<const GPUInputImage> myConstPointer;
+  //typedef SmartPointer<GPUInputImage> myPointer;
+  //typedef SmartPointer<const GPUInputImage> myConstPointer;
   //declarando el tipo de puntero
-  typename myPointer ptrGpuOutputImage;
+  //typename myPointer ptrGpuOutputImage;
 
   //typename  ptrGpuOutputImage;
 
@@ -148,8 +148,8 @@ protected:
   virtual ~NormalizedGradientCorrelationImageToImageMetric() {};
   void PrintSelf(std::ostream& os, Indent indent) const;
   /**Define the neighbor operator filter byu GPU**/
-  typedef itk::GPUNeighborhoodOperatorImageFilter< InputImageType, OutputImageType, RealOutputPixelValueType > SobelFilterType;
-  //typedef NeighborhoodOperatorImageFilter<FixedImageType, GradientImageType> SobelFilterType;
+  //typedef itk::GPUNeighborhoodOperatorImageFilter< InputImageType, OutputImageType, RealOutputPixelValueType > SobelFilterType;
+  typedef NeighborhoodOperatorImageFilter<FixedImageType, GradientImageType> SobelFilterType;
 
 private:
   NormalizedGradientCorrelationImageToImageMetric(const Self&); //purposely not implemented

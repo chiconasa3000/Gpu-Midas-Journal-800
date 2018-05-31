@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-//#include <algorithm>
+#include <algorithm>
 
 using namespace std;
 
@@ -55,14 +55,27 @@ int main(){
 	string outputTextRegistration = GetStdoutFromCommand(comman);
 	
 	//el archivo del log tendra los parametros que fueron usados
-	/*char nameLogRegistro[100];
+	char nameLogRegistro[100];
 	string cabezera = "LogRegisterIteration_";
 	strcpy(nameLogRegistro, cabezera.c_str());
+
+	//numero de imagenes
 	replace(numImages.begin(), numImages.end(), ' ', '_');
 	strcpy(nameLogRegistro, numImages.c_str());
-	*/
 
-	ofstream out("hello");
+	//step tolerance
+	replace(stepTolerance.begin(), stepTolerance.end(), ' ', '_');
+	strcpy(nameLogRegistro, stepTolerance.c_str());
+
+	//size step
+	replace(stepSize.begin(), stepSize.end(), ' ', '_');
+	strcpy(nameLogRegistro, stepSize.c_str());
+
+	//schedule
+	replace(schedule.begin(), schedule.end(), ' ', '_');
+	strcpy(nameLogRegistro, schedule.c_str());
+
+	ofstream out(nameLogRegistro);
 	out << outputTextRegistration << endl;
 	out.close();
 	return 0;
