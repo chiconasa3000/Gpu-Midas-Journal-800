@@ -1,8 +1,9 @@
 #include <iostream>
 #include <fstream>
-#include <string>
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+//#include <algorithm>
 
 using namespace std;
 
@@ -17,17 +18,52 @@ string GetStdoutFromCommand(string cmd){
 	stream = popen(cmd.c_str(),"r");
 	if(stream){
 		while(!feof(stream))
-			if(fgets(buffer, max_buffer, stream) != NULL)
-				data.append(buffer);				
+			if(fgets(buffer, max_buffer, stream) != NULL){
+				std::cout<<buffer<<endl;
+				data.append(buffer);
+			}
 			pclose(stream);
 	}
 	return data;
 }
 
 int main(){
-	string ls = GetStdoutFromCommand("./MultiImageRegistration ../bestData/pelvisSegmIntensity.mha 2 ../bestData/pelvisDRRG0LspCenter.mha 0 1990 0 ../bestData/pelvisDRRG90PsrCenter.mha -1990 0 0 0.08 8.0 4 6 4 2 1 ../bestData/outDirNewUmbral");
-	ofstream out("LogRegisterIterations.txt");
-	out << ls << endl;
+	char comman[200];
+	string command = "./../build/MultiImageRegistration ";
+	strcpy(comman, command.c_str());
+	string movingImage = "../bestData/pelvisSegmIntensity.mha ";
+	strcat(comman,movingImage.c_str());
+	string numImages = "2 ";
+	strcat(comman, numImages.c_str());
+	string fixed1Image = "../bestData/pelvisDRRG0LspCenter.mha ";
+	strcat(comman, fixed1Image.c_str());
+	string focal1Point = "0 1990 0 ";
+	strcat(comman, focal1Point.c_str());
+	string fixed2Image = "../bestData/pelvisDRRG90PsrCenter.mha ";
+	strcat(comman, fixed2Image.c_str());
+	string focal2Point = "-1990 0 0 ";
+	strcat(comman, focal2Point.c_str());
+	string stepTolerance = "0.08 ";
+	strcat(comman, stepTolerance.c_str());
+	string stepSize = "8.0 ";
+	strcat(comman, stepSize.c_str());
+	string schedule = "4 6 4 2 1 ";
+	strcat(comman, schedule.c_str());
+	string outputDir ="../../../crisdrive/outDirNewUMbral";
+	strcat(comman, outputDir.c_str());
+
+	string outputTextRegistration = GetStdoutFromCommand(comman);
+	
+	//el archivo del log tendra los parametros que fueron usados
+	/*char nameLogRegistro[100];
+	string cabezera = "LogRegisterIteration_";
+	strcpy(nameLogRegistro, cabezera.c_str());
+	replace(numImages.begin(), numImages.end(), ' ', '_');
+	strcpy(nameLogRegistro, numImages.c_str());
+	*/
+
+	ofstream out("hello");
+	out << outputTextRegistration << endl;
 	out.close();
 	return 0;
 }

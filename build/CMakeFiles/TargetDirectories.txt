@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/install/strip.dir
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/install.dir
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/list_install_components.dir
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/MultiImageSearch.dir
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/MultiImageRegistration.dir
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/rebuild_cache.dir
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/install/local.dir
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/ImageCompare.dir
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/test.dir
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/edit_cache.dir
+=======
 /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/install/strip.dir
 /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/install.dir
 /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/list_install_components.dir
@@ -8,3 +20,4 @@
 /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/ImageCompare.dir
 /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/test.dir
 /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/edit_cache.dir
+>>>>>>> 358e40cf60bb332c0bf1945648594bfb954d4c98
