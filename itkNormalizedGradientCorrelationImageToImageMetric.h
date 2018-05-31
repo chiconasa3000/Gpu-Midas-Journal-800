@@ -7,6 +7,13 @@
 #include <itkNeighborhoodOperatorImageFilter.h>
 #include <itkResampleImageFilter.h>
 
+#include "itkGPUImage.h"
+#include "itkGPUKernelManager.h"
+#include "itkGPUContextManager.h"
+#include "itkGPUImageToImageFilter.h"
+#include "itkGPUNeighborhoodOperatorImageFilter.h"
+#include "itkTimeProbe.h"
+#include <itkNumericTraits.h>
 
 namespace itk
 {
@@ -66,19 +73,31 @@ public:
 //#else
 //  typedef typename Superclass::RealType                       RealType;
 //#endif
-  typedef typename Superclass::MovingImageType								MovingImageType;
-  typedef typename Superclass::MovingImagePixelType						MovingImagePixelType;
-  typedef typename Superclass::FixedImageType									FixedImageType;
+  typedef typename Superclass::MovingImageType						MovingImageType;
+  typedef typename Superclass::MovingImagePixelType					MovingImagePixelType;
+  typedef typename Superclass::FixedImageType						FixedImageType;
+  typedef typename FixedImageType::PixelType						FixedImagePixelType;
 
-  typedef typename FixedImageType::PixelType						      FixedImagePixelType;
-  typedef ImageRegionConstIteratorWithIndex<FixedImageType>   FixedImageConstIteratorType;
+  itkStaticConstMacro(FixedImageDimension, unsigned int, TFixedImage::ImageDimension);
+  typedef itk::Image<RealType, itkGetStaticConstMacro(FixedImageDimension)> GradientImageType;
+	
+  typedef GPUImage< FixedImagePixelType, itkGetStaticConstMacro(FixedImageDimension)> InputImageType;
+  typedef GPUImage< RealType, itkGetStaticConstMacro(FixedImageDimension)> OutputImageType;
+  
+  typedef typename itk::GPUTraits< InputImageType >::Type  GPUInputImage;
+  typedef typename itk::GPUTraits< OutputImageType >::Type GPUOutputImage;
+
+  typedef RealType RealOutputPixelType;
+  typedef typename NumericTraits<RealOutputPixelType>::ValueType RealOutputPixelValueType;
+
+  typedef ImageRegionConstIteratorWithIndex<FixedImageType>				FixedImageConstIteratorType;
 
   typedef typename Superclass::FixedImageConstPointer					FixedImageConstPointer;
-  typedef typename Superclass::FixedImageRegionType						FixedImageRegionType;
-  typedef typename FixedImageRegionType::SizeType                       SizeType;
-  typedef typename Superclass::TransformType									TransformType;
-  typedef typename Superclass::TransformPointer								TransformPointer;
-  typedef typename Superclass::TransformParametersType				TransformParametersType;
+  typedef typename Superclass::FixedImageRegionType					FixedImageRegionType;
+  typedef typename FixedImageRegionType::SizeType                       		SizeType;
+  typedef typename Superclass::TransformType						TransformType;
+  typedef typename Superclass::TransformPointer						TransformPointer;
+  typedef typename Superclass::TransformParametersType					TransformParametersType;
   typedef typename Superclass::TransformJacobianType					TransformJacobianType;
 
   typedef  typename Superclass::InterpolatorType    InterpolatorType;
@@ -89,14 +108,8 @@ public:
 
   typedef typename Superclass::InputPointType   InputPointType;
 
-  typedef itk::ResampleImageFilter< MovingImageType,
-                                    FixedImageType >  ResampleImageFilterType;
+  typedef itk::ResampleImageFilter< MovingImageType, FixedImageType >  ResampleImageFilterType;
 
-  itkStaticConstMacro(FixedImageDimension, unsigned int,
-                                           TFixedImage::ImageDimension);
-
-  typedef itk::Image<RealType,
-                     itkGetStaticConstMacro(FixedImageDimension)> GradientImageType;
 
   /** Get the derivatives of the match measure. */
   void GetDerivative( const TransformParametersType & parameters,
@@ -125,9 +138,9 @@ protected:
   NormalizedGradientCorrelationImageToImageMetric();
   virtual ~NormalizedGradientCorrelationImageToImageMetric() {};
   void PrintSelf(std::ostream& os, Indent indent) const;
-
-  typedef NeighborhoodOperatorImageFilter<FixedImageType,
-                                          GradientImageType> SobelFilterType;
+  /**Define the neighbor operator filter byu GPU**/
+  typedef itk::GPUNeighborhoodOperatorImageFilter< InputImageType, OutputImageType, RealOutputPixelValueType > SobelFilterType;
+  //typedef NeighborhoodOperatorImageFilter<FixedImageType, GradientImageType> SobelFilterType;
 
 private:
   NormalizedGradientCorrelationImageToImageMetric(const Self&); //purposely not implemented
@@ -138,16 +151,15 @@ private:
 
   /** The filter for transforming the moving images. */
   typename ResampleImageFilterType::Pointer m_ResampleImageFilter;
-
+  
+  /** Define the operator for the Neighboor Operator filter by GPU
   /** The Sobel gradients of the fixed image */
-  SobelOperator<RealType,
-                itkGetStaticConstMacro(FixedImageDimension)>
-                m_SobelOperators[FixedImageDimension];
-
-  typename SobelFilterType::Pointer m_FixedSobelFilters[
-    itkGetStaticConstMacro( FixedImageDimension ) ];
-  typename SobelFilterType::Pointer m_MovingSobelFilters[
-    itkGetStaticConstMacro( FixedImageDimension ) ];
+  SobelOperator< RealOutputPixelValueType, itkGetStaticConstMacro(FixedImageDimension) > m_SobelOperators[FixedImageDimension];
+  //SobelOperator<RealType, itkGetStaticConstMacro(FixedImageDimension)> m_SobelOperators[FixedImageDimension];
+ 
+  //Defines vectors of sobelOperator for every type of image
+  typename SobelFilterType::Pointer m_FixedSobelFilters[ itkGetStaticConstMacro( FixedImageDimension ) ];
+  typename SobelFilterType::Pointer m_MovingSobelFilters[ itkGetStaticConstMacro( FixedImageDimension ) ];
 
   ZeroFluxNeumannBoundaryCondition<FixedImageType> m_FixedBoundaryCondition;
   ZeroFluxNeumannBoundaryCondition<FixedImageType> m_MovingBoundaryCondition;
