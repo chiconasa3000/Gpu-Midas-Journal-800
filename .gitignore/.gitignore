@@ -55,6 +55,8 @@ dkms.conf
 # CMake Directories and Files Ignore
 CMakeCache.txt
 CMakeFiles
+build/
+bestData/outDirNewUmbral/
 CMakeScripts
 Testing
 Makefile
