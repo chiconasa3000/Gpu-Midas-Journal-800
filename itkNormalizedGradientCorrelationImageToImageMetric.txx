@@ -61,12 +61,17 @@ namespace itk
       m_FixedSobelFilters[dim] = SobelFilterType::New();
 
       //m_FixedSobelFilters[dim]->SetInput( this->GetFixedImage() );
-      m_FixedSobelFilters[dim]->SetInput( dynamic_cast< GPUInputImage * >(this->GetFixedImage()) );
+      
+      //this->ptrGpuInputImage = dynamic_cast< const GPUInputImage * >(this->GetFixedImage());
+
+      m_FixedSobelFilters[dim]->SetInput(this->GetFixedImage());
+
+
       m_FixedSobelFilters[dim]->SetOperator( m_SobelOperators[dim] );      
       m_FixedSobelFilters[dim]->OverrideBoundaryCondition(&m_FixedBoundaryCondition );
       //m_FixedSobelFilters[dim]->Update();
       m_FixedSobelFilters[dim]->GetOutput()->SetRequestedRegion(this->GetFixedImageRegion() );
-      m_FixedSobelFilters[dim]->GetOutput()->UpdateBuffers();
+      //m_FixedSobelFilters[dim]->GetOutput()->UpdateBuffers();
       
       }
 
@@ -90,7 +95,7 @@ namespace itk
       m_MovingSobelFilters[dim]->OverrideBoundaryCondition( &m_MovingBoundaryCondition );
       //m_MovingSobelFilters[dim]->Update();
       m_MovingSobelFilters[dim]->GetOutput()->SetRequestedRegion(this->GetFixedImageRegion());
-      m_MovingSobelFilters[dim]->GetOutput()->UpdateBuffers();
+      //m_MovingSobelFilters[dim]->GetOutput()->UpdateBuffers();
       }
   }
 

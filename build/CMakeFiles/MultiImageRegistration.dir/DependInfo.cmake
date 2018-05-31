@@ -4,19 +4,21 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/Examples/MultiImageRegistration.cxx" "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/MultiImageRegistration.dir/Examples/MultiImageRegistration.cxx.o"
+  "/home/cris/Frameworks/Gpu-Midas-Journal-800/Examples/MultiImageRegistration.cxx" "/home/cris/Frameworks/Gpu-Midas-Journal-800/build/CMakeFiles/MultiImageRegistration.dir/Examples/MultiImageRegistration.cxx.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
   "ITK_IO_FACTORY_REGISTER_MANAGER"
+  "vtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"
   )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "ITKFactoryRegistration"
-  "/usr/local/include/ITK-4.13"
+  "ITKIOFactoryRegistration"
+  "/usr/local/include/vtk-7.1"
+  "/usr/local/include/ITK-4.12"
   "../"
   "/usr/local/include"
   )

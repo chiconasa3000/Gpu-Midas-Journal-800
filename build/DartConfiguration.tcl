@@ -4,20 +4,17 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/citesoft01/Frameworks/Gpu-Midas-Journal-800
-BuildDirectory: /home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build
+SourceDirectory: /home/cris/Frameworks/Gpu-Midas-Journal-800
+BuildDirectory: /home/cris/Frameworks/Gpu-Midas-Journal-800/build
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: citesoft01-hpomen
+Site: cris-X555LB
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Linux-c++
-
-# Subprojects
-LabelsForSubprojects: 
 
 # Submission information
 IsCDash: 
@@ -36,7 +33,7 @@ ScpCommand: /usr/bin/scp
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800"
+ConfigureCommand: "/usr/bin/cmake" "/home/cris/Frameworks/Gpu-Midas-Journal-800"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 
@@ -49,7 +46,7 @@ CVSCommand: CVSCOMMAND-NOTFOUND
 CVSUpdateOptions: -d -A -P
 
 # Subversion options
-SVNCommand: SVNCOMMAND-NOTFOUND
+SVNCommand: /usr/bin/svn
 SVNOptions: 
 SVNUpdateOptions: 
 
@@ -73,7 +70,7 @@ UpdateType: git
 
 # Compiler info
 Compiler: /usr/bin/c++
-CompilerVersion: 6.4.0
+CompilerVersion: 7.2.0
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 

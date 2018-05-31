@@ -87,6 +87,15 @@ public:
   typedef typename itk::GPUTraits< InputImageType >::Type  GPUInputImage;
   typedef typename itk::GPUTraits< OutputImageType >::Type GPUOutputImage;
 
+  //typename GPUInputImage::Pointer ptrGpuInputImage;
+  //el pointer no es tuyo
+  //typedef SmartPointer<GPUInputImage> myPointer;
+  //typedef SmartPointer<const GPUInputImage> myConstPointer;
+  //declarando el tipo de puntero
+  //typename myPointer ptrGpuOutputImage;
+
+  //typename  ptrGpuOutputImage;
+
   typedef RealType RealOutputPixelType;
   typedef typename NumericTraits<RealOutputPixelType>::ValueType RealOutputPixelValueType;
 
@@ -139,8 +148,8 @@ protected:
   virtual ~NormalizedGradientCorrelationImageToImageMetric() {};
   void PrintSelf(std::ostream& os, Indent indent) const;
   /**Define the neighbor operator filter byu GPU**/
-  typedef itk::GPUNeighborhoodOperatorImageFilter< InputImageType, OutputImageType, RealOutputPixelValueType > SobelFilterType;
-  //typedef NeighborhoodOperatorImageFilter<FixedImageType, GradientImageType> SobelFilterType;
+  //typedef itk::GPUNeighborhoodOperatorImageFilter< InputImageType, OutputImageType, RealOutputPixelValueType > SobelFilterType;
+  typedef NeighborhoodOperatorImageFilter<FixedImageType, GradientImageType> SobelFilterType;
 
 private:
   NormalizedGradientCorrelationImageToImageMetric(const Self&); //purposely not implemented

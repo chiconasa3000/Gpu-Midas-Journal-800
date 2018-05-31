@@ -1,4 +1,4 @@
-# Install script for directory: /home/citesoft01/Frameworks/Gpu-Midas-Journal-800
+# Install script for directory: /home/cris/Frameworks/Gpu-Midas-Journal-800
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -32,49 +32,44 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
   set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
-# Is this installation the result of a crosscompile?
-if(NOT DEFINED CMAKE_CROSSCOMPILING)
-  set(CMAKE_CROSSCOMPILING "FALSE")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xDevelopmentx" OR NOT CMAKE_INSTALL_COMPONENT)
+if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Development" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkGradientDifferenceMultiImageToImageMetric.h"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkGradientDifferenceSingleImageToImageMetric.h"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkGradientDifferenceSingleImageToImageMetric.txx"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkMeanSquaresMultiImageToImageMetric.h"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkMultiImageRegistrationMacro.h"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkMultiImageToImageMetric.h"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkMultiImageToImageMetric.txx"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkMultiImageToImageRegistrationMethod.h"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkMultiImageToImageRegistrationMethod.txx"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkMultiResolutionMultiImageToImageRegistrationMethod.h"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkMultiResolutionMultiImageToImageRegistrationMethod.txx"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkNormalizedGradientCorrelationImageToImageMetric.h"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkNormalizedGradientCorrelationImageToImageMetric.txx"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkNormalizedGradientCorrelationMultiImageToImageMetric.h"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkPatchedRayCastInterpolateImageFunction.h"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkPatchedRayCastInterpolateImageFunction.txx"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkPatternIntensityImageToImageMetric.h"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkPatternIntensityImageToImageMetric.txx"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkPatternIntensityMultiImageToImageMetric.h"
-    "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/itkPatternIntensityMultiImageToImageMetric.txx"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkGradientDifferenceMultiImageToImageMetric.h"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkGradientDifferenceSingleImageToImageMetric.h"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkGradientDifferenceSingleImageToImageMetric.txx"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkMeanSquaresMultiImageToImageMetric.h"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkMultiImageRegistrationMacro.h"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkMultiImageToImageMetric.h"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkMultiImageToImageMetric.txx"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkMultiImageToImageRegistrationMethod.h"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkMultiImageToImageRegistrationMethod.txx"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkMultiResolutionMultiImageToImageRegistrationMethod.h"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkMultiResolutionMultiImageToImageRegistrationMethod.txx"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkNormalizedGradientCorrelationImageToImageMetric.h"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkNormalizedGradientCorrelationImageToImageMetric.txx"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkNormalizedGradientCorrelationMultiImageToImageMetric.h"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkPatchedRayCastInterpolateImageFunction.h"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkPatchedRayCastInterpolateImageFunction.txx"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkPatternIntensityImageToImageMetric.h"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkPatternIntensityImageToImageMetric.txx"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkPatternIntensityMultiImageToImageMetric.h"
+    "/home/cris/Frameworks/Gpu-Midas-Journal-800/itkPatternIntensityMultiImageToImageMetric.txx"
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xRuntimex" OR NOT CMAKE_INSTALL_COMPONENT)
+if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageSearch" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageSearch")
     file(RPATH_CHECK
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageSearch"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/MultiImageSearch")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/cris/Frameworks/Gpu-Midas-Journal-800/build/MultiImageSearch")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageSearch" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageSearch")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageSearch"
-         OLD_RPATH "/usr/lib/x86_64-linux-gnu/libOpenCL.so:"
+         OLD_RPATH "/usr/local/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageSearch")
@@ -82,19 +77,19 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xRuntimex" OR NOT CMAKE_INSTALL_COMP
   endif()
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xRuntimex" OR NOT CMAKE_INSTALL_COMPONENT)
+if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageRegistration" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageRegistration")
     file(RPATH_CHECK
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageRegistration"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/MultiImageRegistration")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/cris/Frameworks/Gpu-Midas-Journal-800/build/MultiImageRegistration")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageRegistration" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageRegistration")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageRegistration"
-         OLD_RPATH "/usr/lib/x86_64-linux-gnu/libOpenCL.so:"
+         OLD_RPATH "/usr/local/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageRegistration")
@@ -110,5 +105,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/citesoft01/Frameworks/Gpu-Midas-Journal-800/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/cris/Frameworks/Gpu-Midas-Journal-800/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

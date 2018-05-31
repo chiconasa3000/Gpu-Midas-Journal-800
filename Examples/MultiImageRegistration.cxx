@@ -19,10 +19,9 @@
 #include "itkNormalizedGradientCorrelationMultiImageToImageMetric.h"
 #include "itkMultiResolutionMultiImageToImageRegistrationMethod.h"
 #include "itkPatchedRayCastInterpolateImageFunction.h"
-
+#include <stdlib.h>
+#include <stdio.h>
 #include <iostream>
-
-
 /** 
  * MultiImageRegistration
  *  
@@ -225,6 +224,8 @@ int main(int argc, char* argv[] )
   const unsigned int FImgTotal = atoi( argv[0] );
   argc--;
   argv++;
+  
+  float vfocalPoint[FImgTotal][3];
 
   for( unsigned int f=0; f<FImgTotal; f++ )
     {
@@ -247,9 +248,10 @@ int main(int argc, char* argv[] )
 
     InterpolatorType::Pointer interpolator = InterpolatorType::New();
     FocalPointType focalPoint;
-    focalPoint[0] = atof( argv[ 1 ] );
-    focalPoint[1] = atof( argv[ 2 ] );
-    focalPoint[2] = atof( argv[ 3 ] );
+    
+    vfocalPoint[f][0] = focalPoint[0] = atof( argv[ 1 ] );
+    vfocalPoint[f][1] = focalPoint[1] = atof( argv[ 2 ] );
+    vfocalPoint[f][2] = focalPoint[2] = atof( argv[ 3 ] );
     interpolator->SetFocalPoint( focalPoint );
     interpolator->SetTransform( transform );
     interpolator->SetThreshold( 0.0 );
@@ -342,11 +344,10 @@ int main(int argc, char* argv[] )
 			fixedSchedule[i][j]=1;
 			movingSchedule[i][j]=schedulesScales[i];
 		}
-		std::cout<<"["<<i<<","<<j<<"]"<<std::endl;
-		std::cout<<"F: "<<fixedSchedule[i][j]<<std::endl;
-		std::cout<<"M: "<<movingSchedule[i][j]<<std::endl;
-	}		
+	}
+	std::cout<<schedulesScales[i]<<",";	
   }
+  std::cout<<std::endl;
  
   registration->SetSchedules( fixedSchedule, movingSchedule );
 
@@ -530,8 +531,14 @@ int main(int argc, char* argv[] )
 
     std::stringstream strStream;
     strStream << outDir << "/projection";
-    strStream.width(2);
-    strStream.fill('0');
+    
+    //impresion del punto focal
+    strStream.width(9);
+    strStream << "_"<< vfocalPoint[f][0] <<"_"<<vfocalPoint[f][1]<<"_"<<vfocalPoint[f][2];
+
+    //impresion Resolutions Levels, schedules, optimizer->GetStepLength optimizer->GetStepTolerance
+    strStream.width(3);
+    strStream.fill('FF');
     strStream << f;
     strStream.width(0);
     strStream << ".mha";
