@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -130,7 +130,7 @@ vnl/vnl_math.h
 itkRigid3DTransform.h
 ../itkRigid3DTransform.h
 
-/home/administrador/frameworks/midas-journal-800-master/Examples/MultiImageRegistration.cxx
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/Examples/MultiImageRegistration.cxx
 itkCommand.h
 -
 itkSimilarity3DTransform.h
@@ -154,11 +154,15 @@ itkTransformFileReader.h
 itkTransformFileWriter.h
 -
 itkNormalizedGradientCorrelationMultiImageToImageMetric.h
-/home/administrador/frameworks/midas-journal-800-master/Examples/itkNormalizedGradientCorrelationMultiImageToImageMetric.h
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/Examples/itkNormalizedGradientCorrelationMultiImageToImageMetric.h
 itkMultiResolutionMultiImageToImageRegistrationMethod.h
-/home/administrador/frameworks/midas-journal-800-master/Examples/itkMultiResolutionMultiImageToImageRegistrationMethod.h
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/Examples/itkMultiResolutionMultiImageToImageRegistrationMethod.h
 itkPatchedRayCastInterpolateImageFunction.h
-/home/administrador/frameworks/midas-journal-800-master/Examples/itkPatchedRayCastInterpolateImageFunction.h
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/Examples/itkPatchedRayCastInterpolateImageFunction.h
+stdlib.h
+-
+stdio.h
+-
 iostream
 -
 

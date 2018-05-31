@@ -4,14 +4,14 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/administrador/frameworks/midas-journal-800-master
-BuildDirectory: /home/administrador/frameworks/midas-journal-800-master/build
+SourceDirectory: /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800
+BuildDirectory: /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: citesoft3dserver
+Site: citesoft3dserver-P720
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Linux-c++
@@ -33,7 +33,7 @@ ScpCommand: /usr/bin/scp
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/home/administrador/frameworks/midas-journal-800-master"
+ConfigureCommand: "/usr/bin/cmake" "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 
@@ -52,6 +52,7 @@ SVNUpdateOptions:
 
 # Git options
 GITCommand: /usr/bin/git
+GITInitSubmodules: 
 GITUpdateOptions: 
 GITUpdateCustom: 
 
@@ -63,13 +64,13 @@ P4UpdateOptions:
 P4UpdateCustom: 
 
 # Generic update command
-UpdateCommand: 
+UpdateCommand: /usr/bin/git
 UpdateOptions: 
-UpdateType: 
+UpdateType: git
 
 # Compiler info
 Compiler: /usr/bin/c++
-CompilerVersion: 5.5.0
+CompilerVersion: 6.4.0
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 

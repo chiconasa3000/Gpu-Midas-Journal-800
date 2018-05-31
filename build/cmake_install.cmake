@@ -1,4 +1,4 @@
-# Install script for directory: /home/administrador/frameworks/midas-journal-800-master
+# Install script for directory: /home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -32,39 +32,39 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
   set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Development")
+if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Development" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/home/administrador/frameworks/midas-journal-800-master/itkGradientDifferenceMultiImageToImageMetric.h"
-    "/home/administrador/frameworks/midas-journal-800-master/itkGradientDifferenceSingleImageToImageMetric.h"
-    "/home/administrador/frameworks/midas-journal-800-master/itkGradientDifferenceSingleImageToImageMetric.txx"
-    "/home/administrador/frameworks/midas-journal-800-master/itkMeanSquaresMultiImageToImageMetric.h"
-    "/home/administrador/frameworks/midas-journal-800-master/itkMultiImageRegistrationMacro.h"
-    "/home/administrador/frameworks/midas-journal-800-master/itkMultiImageToImageMetric.h"
-    "/home/administrador/frameworks/midas-journal-800-master/itkMultiImageToImageMetric.txx"
-    "/home/administrador/frameworks/midas-journal-800-master/itkMultiImageToImageRegistrationMethod.h"
-    "/home/administrador/frameworks/midas-journal-800-master/itkMultiImageToImageRegistrationMethod.txx"
-    "/home/administrador/frameworks/midas-journal-800-master/itkMultiResolutionMultiImageToImageRegistrationMethod.h"
-    "/home/administrador/frameworks/midas-journal-800-master/itkMultiResolutionMultiImageToImageRegistrationMethod.txx"
-    "/home/administrador/frameworks/midas-journal-800-master/itkNormalizedGradientCorrelationImageToImageMetric.h"
-    "/home/administrador/frameworks/midas-journal-800-master/itkNormalizedGradientCorrelationImageToImageMetric.txx"
-    "/home/administrador/frameworks/midas-journal-800-master/itkNormalizedGradientCorrelationMultiImageToImageMetric.h"
-    "/home/administrador/frameworks/midas-journal-800-master/itkPatchedRayCastInterpolateImageFunction.h"
-    "/home/administrador/frameworks/midas-journal-800-master/itkPatchedRayCastInterpolateImageFunction.txx"
-    "/home/administrador/frameworks/midas-journal-800-master/itkPatternIntensityImageToImageMetric.h"
-    "/home/administrador/frameworks/midas-journal-800-master/itkPatternIntensityImageToImageMetric.txx"
-    "/home/administrador/frameworks/midas-journal-800-master/itkPatternIntensityMultiImageToImageMetric.h"
-    "/home/administrador/frameworks/midas-journal-800-master/itkPatternIntensityMultiImageToImageMetric.txx"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkGradientDifferenceMultiImageToImageMetric.h"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkGradientDifferenceSingleImageToImageMetric.h"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkGradientDifferenceSingleImageToImageMetric.txx"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkMeanSquaresMultiImageToImageMetric.h"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkMultiImageRegistrationMacro.h"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkMultiImageToImageMetric.h"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkMultiImageToImageMetric.txx"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkMultiImageToImageRegistrationMethod.h"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkMultiImageToImageRegistrationMethod.txx"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkMultiResolutionMultiImageToImageRegistrationMethod.h"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkMultiResolutionMultiImageToImageRegistrationMethod.txx"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkNormalizedGradientCorrelationImageToImageMetric.h"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkNormalizedGradientCorrelationImageToImageMetric.txx"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkNormalizedGradientCorrelationMultiImageToImageMetric.h"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkPatchedRayCastInterpolateImageFunction.h"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkPatchedRayCastInterpolateImageFunction.txx"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkPatternIntensityImageToImageMetric.h"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkPatternIntensityImageToImageMetric.txx"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkPatternIntensityMultiImageToImageMetric.h"
+    "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkPatternIntensityMultiImageToImageMetric.txx"
     )
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Runtime")
+if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageSearch" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageSearch")
     file(RPATH_CHECK
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageSearch"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/administrador/frameworks/midas-journal-800-master/build/MultiImageSearch")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/MultiImageSearch")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageSearch" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageSearch")
     file(RPATH_CHANGE
@@ -77,14 +77,14 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Runtime
   endif()
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Runtime")
+if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageRegistration" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageRegistration")
     file(RPATH_CHECK
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageRegistration"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/administrador/frameworks/midas-journal-800-master/build/MultiImageRegistration")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/MultiImageRegistration")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageRegistration" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MultiImageRegistration")
     file(RPATH_CHANGE
@@ -105,5 +105,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/administrador/frameworks/midas-journal-800-master/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

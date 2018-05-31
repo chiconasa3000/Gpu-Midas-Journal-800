@@ -19,10 +19,9 @@
 #include "itkNormalizedGradientCorrelationMultiImageToImageMetric.h"
 #include "itkMultiResolutionMultiImageToImageRegistrationMethod.h"
 #include "itkPatchedRayCastInterpolateImageFunction.h"
-
+#include <stdlib.h>
+#include <stdio.h>
 #include <iostream>
-
-
 /** 
  * MultiImageRegistration
  *  
@@ -225,6 +224,8 @@ int main(int argc, char* argv[] )
   const unsigned int FImgTotal = atoi( argv[0] );
   argc--;
   argv++;
+  
+  float vfocalPoint[FImgTotal][3];
 
   for( unsigned int f=0; f<FImgTotal; f++ )
     {
@@ -247,9 +248,10 @@ int main(int argc, char* argv[] )
 
     InterpolatorType::Pointer interpolator = InterpolatorType::New();
     FocalPointType focalPoint;
-    focalPoint[0] = atof( argv[ 1 ] );
-    focalPoint[1] = atof( argv[ 2 ] );
-    focalPoint[2] = atof( argv[ 3 ] );
+    
+    vfocalPoint[f][0] = focalPoint[0] = atof( argv[ 1 ] );
+    vfocalPoint[f][1] = focalPoint[1] = atof( argv[ 2 ] );
+    vfocalPoint[f][2] = focalPoint[2] = atof( argv[ 3 ] );
     interpolator->SetFocalPoint( focalPoint );
     interpolator->SetTransform( transform );
     interpolator->SetThreshold( 0.0 );
@@ -342,11 +344,10 @@ int main(int argc, char* argv[] )
 			fixedSchedule[i][j]=1;
 			movingSchedule[i][j]=schedulesScales[i];
 		}
-		std::cout<<"["<<i<<","<<j<<"]"<<std::endl;
-		std::cout<<"F: "<<fixedSchedule[i][j]<<std::endl;
-		std::cout<<"M: "<<movingSchedule[i][j]<<std::endl;
-	}		
+	}
+	std::cout<<schedulesScales[i]<<",";	
   }
+  std::cout<<std::endl;
  
   registration->SetSchedules( fixedSchedule, movingSchedule );
 
@@ -530,6 +531,20 @@ int main(int argc, char* argv[] )
 
     std::stringstream strStream;
     strStream << outDir << "/projection";
+    /*for(unsigned int ff=0; ff<FImgTotal; ff++){
+	strStream.width(9);
+    	strStream << "_"<< vfocalPoint[ff][0] <<"_"<<vfocalPoint[ff][1]<<"_"<<vfocalPoint[ff][2];
+    }
+    strStream.width(2);
+    strStream << "_" << ResolutionLevels;
+    strStream.width(6);
+    strStream <<"_"<<schedulesScales[0]<<"_"<<schedulesScales[1]<<"_"<<schedulesScales[2];
+    strStream.width(3);
+    strStream.fill('0');
+    strStream << std::left <<"_"<<optimizer->GetStepLength();
+    strStream.width(3);
+    strStream.fill('0');
+    strStream << std::left <<"_"<<optimizer->GetStepTolerance();*/
     strStream.width(2);
     strStream.fill('0');
     strStream << f;

@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -186,7 +186,7 @@ itkNumericTraits.h
 itkPatternIntensityMultiImageToImageMetric.h
 ../itkPatternIntensityMultiImageToImageMetric.h
 
-/home/administrador/frameworks/midas-journal-800-master/Examples/MultiImageSearch.cxx
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/Examples/MultiImageSearch.cxx
 itkCommand.h
 -
 itkImage.h
@@ -200,15 +200,15 @@ itkExhaustiveOptimizer.h
 itkTranslationTransform.h
 -
 itkGradientDifferenceMultiImageToImageMetric.h
-/home/administrador/frameworks/midas-journal-800-master/Examples/itkGradientDifferenceMultiImageToImageMetric.h
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/Examples/itkGradientDifferenceMultiImageToImageMetric.h
 itkNormalizedGradientCorrelationMultiImageToImageMetric.h
-/home/administrador/frameworks/midas-journal-800-master/Examples/itkNormalizedGradientCorrelationMultiImageToImageMetric.h
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/Examples/itkNormalizedGradientCorrelationMultiImageToImageMetric.h
 itkPatternIntensityMultiImageToImageMetric.h
-/home/administrador/frameworks/midas-journal-800-master/Examples/itkPatternIntensityMultiImageToImageMetric.h
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/Examples/itkPatternIntensityMultiImageToImageMetric.h
 itkMultiResolutionMultiImageToImageRegistrationMethod.h
-/home/administrador/frameworks/midas-journal-800-master/Examples/itkMultiResolutionMultiImageToImageRegistrationMethod.h
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/Examples/itkMultiResolutionMultiImageToImageRegistrationMethod.h
 itkPatchedRayCastInterpolateImageFunction.h
-/home/administrador/frameworks/midas-journal-800-master/Examples/itkPatchedRayCastInterpolateImageFunction.h
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/Examples/itkPatchedRayCastInterpolateImageFunction.h
 vector
 -
 sstream

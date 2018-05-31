@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,27 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/home/administrador/frameworks/midas-journal-800-master/ImageCompare.cxx
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/ImageCompare.cxx
 itkWin32Header.h
-/home/administrador/frameworks/midas-journal-800-master/itkWin32Header.h
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkWin32Header.h
 iostream
 -
 fstream
 -
 itkNumericTraits.h
-/home/administrador/frameworks/midas-journal-800-master/itkNumericTraits.h
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkNumericTraits.h
 itkImage.h
-/home/administrador/frameworks/midas-journal-800-master/itkImage.h
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkImage.h
 itkImageFileReader.h
-/home/administrador/frameworks/midas-journal-800-master/itkImageFileReader.h
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkImageFileReader.h
 itkImageFileWriter.h
-/home/administrador/frameworks/midas-journal-800-master/itkImageFileWriter.h
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkImageFileWriter.h
 itkRescaleIntensityImageFilter.h
-/home/administrador/frameworks/midas-journal-800-master/itkRescaleIntensityImageFilter.h
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkRescaleIntensityImageFilter.h
 itkExtractImageFilter.h
-/home/administrador/frameworks/midas-journal-800-master/itkExtractImageFilter.h
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkExtractImageFilter.h
 itkTestingComparisonImageFilter.h
-/home/administrador/frameworks/midas-journal-800-master/itkTestingComparisonImageFilter.h
+/home/citesoft3dserver/UnidadChristian/Frameworks/Gpu-Midas-Journal-800/itkTestingComparisonImageFilter.h
 
 /usr/local/include/ITK-4.13/ITKCommonExport.h
 
