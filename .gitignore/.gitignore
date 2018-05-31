@@ -1,3 +1,7 @@
+#Ignore Directories Results
+build/
+bestData/outDirNewUmbral/
+
 # Prerequisites
 *.d
 
@@ -55,8 +59,6 @@ dkms.conf
 # CMake Directories and Files Ignore
 CMakeCache.txt
 CMakeFiles
-build/
-bestData/outDirNewUmbral/
 CMakeScripts
 Testing
 Makefile
@@ -65,5 +67,4 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 
-#Ignore Directories Results
-outDirNewUmbral
+
