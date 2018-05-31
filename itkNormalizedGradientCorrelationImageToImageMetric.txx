@@ -61,7 +61,11 @@ namespace itk
       m_FixedSobelFilters[dim] = SobelFilterType::New();
 
       //m_FixedSobelFilters[dim]->SetInput( this->GetFixedImage() );
-      m_FixedSobelFilters[dim]->SetInput( dynamic_cast< GPUInputImage * >(this->GetFixedImage()) );
+      
+      this->ptrGpuInputImage = dynamic_cast< const GPUInputImage * >(this->GetFixedImage());
+      m_FixedSobelFilters[dim]->SetInput(this->ptrGpuInputImage);
+
+
       m_FixedSobelFilters[dim]->SetOperator( m_SobelOperators[dim] );      
       m_FixedSobelFilters[dim]->OverrideBoundaryCondition(&m_FixedBoundaryCondition );
       //m_FixedSobelFilters[dim]->Update();
