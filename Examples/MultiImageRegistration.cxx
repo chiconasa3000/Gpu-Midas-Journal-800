@@ -1,4 +1,3 @@
-
 #ifdef _MSC_VER
 #pragma warning ( disable : 4786 )
 #endif
@@ -22,6 +21,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
+#include <sstream>
+
 /** 
  * MultiImageRegistration
  *  
@@ -303,6 +304,7 @@ int main(int argc, char* argv[] )
     -itk::NumericTraits<MultiMetricType::MeasureType>::infinity() );
 
 //These parameters will be halved at the begginng of each resolution level
+  float steptolerance=atof(argv[0]); float steplength=atof(argv[1]);
   optimizer->SetStepTolerance( atof(argv[0]) );
   optimizer->SetStepLength( atof(argv[1]) );
   argc-=2;
@@ -333,7 +335,7 @@ int main(int argc, char* argv[] )
   argc-= ResolutionLevels;
   argv+= ResolutionLevels;
   
-  std::cout<<"planificacion"<<std::endl;  
+  std::cout<<"::Planning::"<<std::endl;  
 
   for(int i=0; i<ResolutionLevels; i++){
 	for(int j=0; j<Dimensions; j++){
@@ -411,11 +413,24 @@ int main(int argc, char* argv[] )
   registration->SetInitialTransformParameters( transform->GetParameters() );
 
 
+//Print parameters using in the registration
+   std::cout << "StepTolerance "<< optimizer->GetStepTolerance()<<std::endl;
+   std::cout<< "StepLength "<< optimizer->GetStepLength()<<std::endl;
+   std::cout<< "Schedules"<< schedulesScales[0]<<" "<<schedulesScales[1]<<" "<<schedulesScales[2]<<std::endl;
+
+//Create stream for important parameters
+   
+   std::ostringstream strStepTol, strStepLen;
+   strStepTol << steptolerance;
+   strStepLen << steplength;
+
 //----------------------------------------------------------------------------
 // Save the initial matrix file
 //----------------------------------------------------------------------------
   std::string inputMatrixPath = outDir;
-  inputMatrixPath.append( "/inMatrix.txt" );
+  inputMatrixPath.append( "/inMatrix" );
+  inputMatrixPath.append("_"+strStepTol.str()+"_"+strStepLen.str());
+  inputMatrixPath.append(".txt");
 
   std::ofstream inputMatrixFile;
   std::cout << "Saving input matrix file " << inputMatrixPath << std::endl;
@@ -459,7 +474,9 @@ int main(int argc, char* argv[] )
 //----------------------------------------------------------------------------
 
   std::string outputTransformPath = outDir;
-  outputTransformPath.append( "/outTransform.txt" );
+  outputTransformPath.append( "/outTransform" );
+  outputTransformPath.append("_"+strStepTol.str()+"_"+strStepLen.str());
+  outputTransformPath.append(".txt"); 
 
   itk::TransformFileWriter::Pointer transformWriter = 
     itk::TransformFileWriter::New();
@@ -478,7 +495,9 @@ int main(int argc, char* argv[] )
     }
 
   std::string outputMatrixPath = outDir;
-  outputMatrixPath.append( "/outMatrix.txt" );
+  outputMatrixPath.append( "/outMatrix" );
+  outputMatrixPath.append("_"+strStepTol.str()+"_"+strStepLen.str());
+  outputMatrixPath.append(".txt");
 
   std::ofstream outputMatrixFile;
   std::cout << "Saving output matrix file " << outputMatrixPath << std::endl;
@@ -533,10 +552,12 @@ int main(int argc, char* argv[] )
     strStream << outDir << "/projection";
     
     //impresion del punto focal
-    strStream.width(9);
     strStream << "_"<< vfocalPoint[f][0] <<"_"<<vfocalPoint[f][1]<<"_"<<vfocalPoint[f][2];
 
     //impresion Resolutions Levels, schedules, optimizer->GetStepLength optimizer->GetStepTolerance
+   
+    strStream<<"_"<<strStepTol.str(); 
+    strStream<<"_"<<strStepLen.str();
     strStream.width(3);
     strStream.fill('FF');
     strStream << f;
@@ -566,8 +587,11 @@ int main(int argc, char* argv[] )
     
     std::stringstream strStream2;
     strStream2 << outDir << "/subtraction";
-    strStream2.width(2);
-    strStream2.fill('0');
+    strStream2 << "_"<< vfocalPoint[f][0] <<"_"<<vfocalPoint[f][1]<<"_"<<vfocalPoint[f][2];
+    strStream2 << "_" << strStepTol.str();
+    strStream2 << "_" << strStepLen.str();
+    strStream2.width(3);
+    strStream2.fill('SS');
     strStream2 << f;
     strStream2.width(0);
     strStream2 << ".mha";

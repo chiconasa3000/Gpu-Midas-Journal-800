@@ -31,7 +31,7 @@ string GetStdoutFromCommand(string cmd){
 
 int main(){
 	//vector of step tolerances
-	std::vector<float> stepTolerances={2.0,4.0,8.0};
+	std::vector<float> stepTolerances={1.0,2.0,3.0};
 
 	for(int i=0;i <stepTolerances.size(); i++){
 
@@ -61,7 +61,7 @@ int main(){
 		strcat(comman, stepSize.c_str());
 		string schedule = "4 6 4 2 1 ";
 		strcat(comman, schedule.c_str());
-		string outputDir ="../../../crisdrive/outDirNewUMbral";
+		string outputDir ="../../../crisdrive/outDirNewUmbral";
 		strcat(comman, outputDir.c_str());
 
 		string outputTextRegistration = GetStdoutFromCommand(comman);
@@ -73,20 +73,21 @@ int main(){
 
 		//numero de imagenes
 		replace(numImages.begin(), numImages.end(), ' ', '_');
-		strcpy(nameLogRegistro, numImages.c_str());
+		strcat(nameLogRegistro, numImages.c_str());
 
 		//step tolerance
 		replace(stepTolerance.begin(), stepTolerance.end(), ' ', '_');
-		strcpy(nameLogRegistro, stepTolerance.c_str());
+		strcat(nameLogRegistro, stepTolerance.c_str());
 
 		//size step
 		replace(stepSize.begin(), stepSize.end(), ' ', '_');
-		strcpy(nameLogRegistro, stepSize.c_str());
+		strcat(nameLogRegistro, stepSize.c_str());
 
 		//schedule
 		replace(schedule.begin(), schedule.end(), ' ', '_');
-		strcpy(nameLogRegistro, schedule.c_str());
-
+		strcat(nameLogRegistro, schedule.c_str());
+		strcat(nameLogRegistro, ".txt");
+		
 		ofstream out(nameLogRegistro);
 		out << outputTextRegistration << endl;
 		out.close();
