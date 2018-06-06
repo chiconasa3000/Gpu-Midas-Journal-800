@@ -1,0 +1,38 @@
+::Planning::
+6,4,2,1,
+StepTolerance 0.08
+StepLength 3
+Schedules6 4 2
+Saving input matrix file ../../../crisdrive/outDirNewUmbral/inMatrix_0.08_3.txt
+Could not open input matrix file ../../../crisdrive/outDirNewUmbral/inMatrix_0.08_3.txt
+
+Resolution level 0
+StepLength set to 1.5
+StepTolerance set to 0.04
+Platform  : NVIDIA CUDA
+GeForce GTX 1050
+Maximum Work Item Sizes : { 1024, 1024, 64 }
+Maximum Work Group Size : 1024
+Alignment in bits of the base address : 4096
+Smallest alignment in bytes for any data type : 128
+cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_fp64 cl_khr_byte_addressable_store cl_khr_icd cl_khr_gl_sharing cl_nv_compiler_options cl_nv_device_attribute_query cl_nv_pragma_unroll cl_nv_copy_opts cl_nv_create_buffer
+Defines: #define DIM_3
+#define INTYPE float
+#define OUTTYPE double
+#pragma OPENCL EXTENSION cl_khr_fp64 : enable
+#pragma OPENCL EXTENSION cl_amd_fp64 : enable
+#define OPTYPE double
+#pragma OPENCL EXTENSION cl_khr_fp64 : enable
+#pragma OPENCL EXTENSION cl_amd_fp64 : enable
+
+Defines: #define DIM_3
+#define INTYPE float
+#define OUTTYPE double
+#pragma OPENCL EXTENSION cl_khr_fp64 : enable
+#pragma OPENCL EXTENSION cl_amd_fp64 : enable
+#define OPTYPE double
+#pragma OPENCL EXTENSION cl_khr_fp64 : enable
+#pragma OPENCL EXTENSION cl_amd_fp64 : enable
+
+Segmentation fault (core dumped)
+

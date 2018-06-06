@@ -31,7 +31,7 @@ string GetStdoutFromCommand(string cmd){
 
 int main(){
 	//vector of step tolerances
-	std::vector<float> stepTolerances={1.0,2.0,3.0};
+	std::vector<float> stepTolerances={3.0};
 
 	for(int i=0;i <stepTolerances.size(); i++){
 

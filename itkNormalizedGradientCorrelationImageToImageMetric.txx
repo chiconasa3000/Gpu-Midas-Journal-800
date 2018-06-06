@@ -26,11 +26,10 @@ namespace itk
  * Initialize
  */
   template <class TFixedImage, class TMovingImage>
-  void
-  NormalizedGradientCorrelationImageToImageMetric<TFixedImage,TMovingImage>
+  void NormalizedGradientCorrelationImageToImageMetric<TFixedImage,TMovingImage>
   ::Initialize(void) throw ( ExceptionObject )
   {
-// Initialise the base class
+    // Initialise the base class
     Superclass::Initialize();
 
     SizeType size = this->GetFixedImageRegion().GetSize();
@@ -38,13 +37,17 @@ namespace itk
       {
       if( size[dim] < 2 )
         {
-        m_MaxDimension = dim;
-        break;
+          m_MaxDimension = dim;
+          break;
         }
       }
 
+      //para el error en tiempo de ejecucion de Input Primary is required  but not set
+      //this->SetNumberOfRequiredInputs(2);
+
     for (unsigned int dim=0; dim<m_MaxDimension; dim++)
       {
+        //el operador es sobel no es gaussiano
       m_SobelOperators[dim].SetRadius( 1 );
       m_SobelOperators[dim].SetDirection( dim );
       m_SobelOperators[dim].CreateDirectional();
@@ -62,15 +65,28 @@ namespace itk
 
       //m_FixedSobelFilters[dim]->SetInput( this->GetFixedImage() );
       
-      //this->ptrGpuInputImage = dynamic_cast< const GPUInputImage * >(this->GetFixedImage());
+      this->ptrGpuInputImage = dynamic_cast< const GPUInputImage * >(this->GetFixedImage());
 
-      m_FixedSobelFilters[dim]->SetInput(this->GetFixedImage());
+      //m_FixedSobelFilters[dim]->SetInput(this->ptrGpuInputImage);
+      //imagetoimagefilter que asumo que usa el imagetoimagemetric
+      //de acuerdo a los parametros de plantilla que recibe
+      //se colocara el numero de imagenes requeridas tanto para la entrada
+      //como para la salida
 
+      //en este caso debemos buscar el origen de image to image metric
+
+      //el numero que va al inicio del set input es el indice de la imagen
+      //para este caso al ser set inputs independientes para cada filtro
+      //se debe colocar el setnumberofrequiredinputs(numero de imagenes fijas)
+      m_FixedSobelFilters[dim]->SetInput(dim,this->ptrGpuInputImage);
 
       m_FixedSobelFilters[dim]->SetOperator( m_SobelOperators[dim] );      
+      
+      //la funcion recibe un condicion que tiene como plantilla las imagenes normales de itk
+      //pero sabemos que el filtro esta desplegado para las imagenes GPU
       m_FixedSobelFilters[dim]->OverrideBoundaryCondition(&m_FixedBoundaryCondition );
       //m_FixedSobelFilters[dim]->Update();
-      m_FixedSobelFilters[dim]->GetOutput()->SetRequestedRegion(this->GetFixedImageRegion() );
+      m_FixedSobelFilters[dim]->GetOutput(dim)->SetRequestedRegion(this->GetFixedImageRegion() );
       //m_FixedSobelFilters[dim]->GetOutput()->UpdateBuffers();
       
       }
@@ -90,11 +106,15 @@ namespace itk
       {
         //primero instanciamos el filtro sobel del tipo de imagen
       m_MovingSobelFilters[dim] = SobelFilterType::New();
-      m_MovingSobelFilters[dim]->SetInput(m_ResampleImageFilter->GetOutput());
+      
+      this->ptrGpuOutputImage = dynamic_cast<const GPUOutputImage *>(m_ResampleImageFilter->GetOutput());
+
+      m_MovingSobelFilters[dim]->SetInput(dim,this->ptrGpuOutputImage);
+
       m_MovingSobelFilters[dim]->SetOperator( m_SobelOperators[dim] );
       m_MovingSobelFilters[dim]->OverrideBoundaryCondition( &m_MovingBoundaryCondition );
       //m_MovingSobelFilters[dim]->Update();
-      m_MovingSobelFilters[dim]->GetOutput()->SetRequestedRegion(this->GetFixedImageRegion());
+      m_MovingSobelFilters[dim]->GetOutput(dim)->SetRequestedRegion(this->GetFixedImageRegion());
       //m_MovingSobelFilters[dim]->GetOutput()->UpdateBuffers();
       }
   }
@@ -127,6 +147,7 @@ namespace itk
     for (unsigned int dim=0; dim<m_MaxDimension; dim++)
       {
         //Aqui es donde recien se aplica el filtro sobel por GPU
+        //esto necesita del indice
       this->m_FixedSobelFilters[dim]->Update();
       this->m_MovingSobelFilters[dim]->Update();
       }
@@ -153,13 +174,12 @@ namespace itk
     RealType movingGradient[FixedImageDimension];
     RealType fixedGradient[FixedImageDimension];
 
-    FixedImageConstIteratorType iter( this->m_FixedImage,
-      this->GetFixedImageRegion() );
+    FixedImageConstIteratorType iter( this->m_FixedImage, this->GetFixedImageRegion() );
     for( iter.GoToBegin(); !iter.IsAtEnd(); ++iter )
       {
       typename FixedImageType::IndexType fixedIndex = iter.GetIndex();
 
-//Check if point is inside the fixed image mask
+      //Check if point is inside the fixed image mask
       InputPointType inputPoint;
       this->GetFixedImage()->TransformIndexToPhysicalPoint( fixedIndex, inputPoint );
 
@@ -171,8 +191,9 @@ namespace itk
       for( unsigned int dim=0; dim<m_MaxDimension; dim++ )
         {
           //consiguiendo la salida del filtro sobel por GPU
-        fixedGradient[dim] = m_FixedSobelFilters[dim]->GetOutput()->GetPixel(fixedIndex );
-        movingGradient[dim] = m_MovingSobelFilters[dim]->GetOutput()->GetPixel(fixedIndex );
+          //se modifica por indice
+        fixedGradient[dim] = m_FixedSobelFilters[dim]->GetOutput(dim)->GetPixel(fixedIndex );
+        movingGradient[dim] = m_MovingSobelFilters[dim]->GetOutput(dim)->GetPixel(fixedIndex );
         
         cc[dim] +=  movingGradient[dim] * fixedGradient[dim];
         fac[dim] += fixedGradient[dim] * fixedGradient[dim];
