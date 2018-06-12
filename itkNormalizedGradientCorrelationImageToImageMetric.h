@@ -99,8 +99,10 @@ public:
    //typedef SmartPointer< Self >                                                   Pointer;
   //typedef SmartPointer< const Self >                                             ConstPointer;
 
-  typename GPUInputImage::ConstPointer ptrGpuInputImage; 
-  typename GPUOutputImage::ConstPointer ptrGpuOutputImage;
+  //typename GPUInputImage::ConstPointer ptrGpuInputImageDim1; 
+  typename GPUInputImage::ConstPointer m_ptrosGPUInputImages[ itkGetStaticConstMacro( FixedImageDimension ) ];
+  typename GPUOutputImage::ConstPointer m_ptrosGPUOutputImages[ itkGetStaticConstMacro( FixedImageDimension ) ];
+  //typename GPUOutputImage::ConstPointer ptrGpuOutputImageDim1;
   //el pointer no es tuyo
   //typedef SmartPointer<GPUInputImage> myPointer;
   //typedef SmartPointer<const GPUInputImage> myConstPointer;

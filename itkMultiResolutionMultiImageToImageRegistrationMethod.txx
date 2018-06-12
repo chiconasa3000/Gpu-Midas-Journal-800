@@ -76,8 +76,7 @@ MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
   this->m_Optimizer->SetInitialPosition( m_InitialTransformParametersOfNextLevel );
 
   // Connect the transform to the Decorator.
-  TransformOutputType * transformOutput =
-     static_cast< TransformOutputType * >( this->ProcessObject::GetOutput(0) );
+  TransformOutputType * transformOutput = static_cast< TransformOutputType * >( this->ProcessObject::GetOutput(0) );
 
   transformOutput->Set( this->m_Transform.GetPointer() );
 }
@@ -87,8 +86,7 @@ MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
  * Stop the Registration Process
  */
 template < typename TFixedImage, typename TMovingImage >
-void
-MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
+void MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 ::StopRegistration( void )
 {
   m_Stop = true;
@@ -260,8 +258,7 @@ MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
     SizeType  inputSize  = this->m_FixedMultiImageRegion[f].GetSize();
     IndexType inputStart = this->m_FixedMultiImageRegion[f].GetIndex();
 
-    const unsigned long NumberOfLevels =
-      this->m_FixedMultiImagePyramid[f]->GetNumberOfLevels();
+    const unsigned long NumberOfLevels = this->m_FixedMultiImagePyramid[f]->GetNumberOfLevels();
 
     this->m_FixedMultiImageRegionPyramid.push_back( FixedImageRegionPyramidType( NumberOfLevels ) );
 

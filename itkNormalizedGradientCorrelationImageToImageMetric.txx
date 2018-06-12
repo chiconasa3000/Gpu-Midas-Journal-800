@@ -6,7 +6,7 @@
 #include <itkImageRegionConstIteratorWithIndex.h>
 
 
-
+#include <stdio.h>
 namespace itk
 {
 
@@ -47,6 +47,7 @@ namespace itk
 
     for (unsigned int dim=0; dim<m_MaxDimension; dim++)
       {
+        std::cout<<"dimFixed: "<<dim<<std::endl;
         //el operador es sobel no es gaussiano
       m_SobelOperators[dim].SetRadius( 1 );
       m_SobelOperators[dim].SetDirection( dim );
@@ -59,13 +60,16 @@ namespace itk
 
       //cada sobel filtro como puntero es instanciado
       //debemos tener cuidado con el tipo de puntero
-      
+      m_ptrosGPUInputImages[dim] = dynamic_cast< const GPUInputImage * >(this->GetFixedImage());
+      //this->ptrGpuInputImage = dynamic_cast< const GPUInputImage * >(this->GetFixedImage());
       //primero instanciamos el respector puntero al filtro sobel
       m_FixedSobelFilters[dim] = SobelFilterType::New();
-
+      //la funcion recibe un condicion que tiene como plantilla las imagenes normales de itk
+      //pero sabemos que el filtro esta desplegado para las imagenes GPU
+      m_FixedSobelFilters[dim]->OverrideBoundaryCondition(&m_FixedBoundaryCondition );
       //m_FixedSobelFilters[dim]->SetInput( this->GetFixedImage() );
       
-      this->ptrGpuInputImage = dynamic_cast< const GPUInputImage * >(this->GetFixedImage());
+      
 
       //m_FixedSobelFilters[dim]->SetInput(this->ptrGpuInputImage);
       //imagetoimagefilter que asumo que usa el imagetoimagemetric
@@ -78,15 +82,11 @@ namespace itk
       //el numero que va al inicio del set input es el indice de la imagen
       //para este caso al ser set inputs independientes para cada filtro
       //se debe colocar el setnumberofrequiredinputs(numero de imagenes fijas)
-      m_FixedSobelFilters[dim]->SetInput(dim,this->ptrGpuInputImage);
-
       m_FixedSobelFilters[dim]->SetOperator( m_SobelOperators[dim] );      
+      m_FixedSobelFilters[dim]->SetInput(m_ptrosGPUInputImages[dim]);
       
-      //la funcion recibe un condicion que tiene como plantilla las imagenes normales de itk
-      //pero sabemos que el filtro esta desplegado para las imagenes GPU
-      m_FixedSobelFilters[dim]->OverrideBoundaryCondition(&m_FixedBoundaryCondition );
       //m_FixedSobelFilters[dim]->Update();
-      m_FixedSobelFilters[dim]->GetOutput(dim)->SetRequestedRegion(this->GetFixedImageRegion() );
+      m_FixedSobelFilters[dim]->GetOutput()->SetRequestedRegion(this->GetFixedImageRegion() );
       //m_FixedSobelFilters[dim]->GetOutput()->UpdateBuffers();
       
       }
@@ -104,17 +104,16 @@ namespace itk
 
     for (unsigned int dim=0; dim < m_MaxDimension; dim++)
       {
+        std::cout<<"dimMoving: "<<dim<<std::endl;
+
         //primero instanciamos el filtro sobel del tipo de imagen
+      m_ptrosGPUOutputImages[dim] = dynamic_cast<const GPUOutputImage *>(m_ResampleImageFilter->GetOutput());
       m_MovingSobelFilters[dim] = SobelFilterType::New();
-      
-      this->ptrGpuOutputImage = dynamic_cast<const GPUOutputImage *>(m_ResampleImageFilter->GetOutput());
-
-      m_MovingSobelFilters[dim]->SetInput(dim,this->ptrGpuOutputImage);
-
-      m_MovingSobelFilters[dim]->SetOperator( m_SobelOperators[dim] );
       m_MovingSobelFilters[dim]->OverrideBoundaryCondition( &m_MovingBoundaryCondition );
+      m_MovingSobelFilters[dim]->SetOperator( m_SobelOperators[dim] );
+      m_MovingSobelFilters[dim]->SetInput(m_ptrosGPUOutputImages[dim]);
       //m_MovingSobelFilters[dim]->Update();
-      m_MovingSobelFilters[dim]->GetOutput(dim)->SetRequestedRegion(this->GetFixedImageRegion());
+      m_MovingSobelFilters[dim]->GetOutput()->SetRequestedRegion(this->GetFixedImageRegion());
       //m_MovingSobelFilters[dim]->GetOutput()->UpdateBuffers();
       }
   }
@@ -192,8 +191,8 @@ namespace itk
         {
           //consiguiendo la salida del filtro sobel por GPU
           //se modifica por indice
-        fixedGradient[dim] = m_FixedSobelFilters[dim]->GetOutput(dim)->GetPixel(fixedIndex );
-        movingGradient[dim] = m_MovingSobelFilters[dim]->GetOutput(dim)->GetPixel(fixedIndex );
+        fixedGradient[dim] = m_FixedSobelFilters[dim]->GetOutput()->GetPixel(fixedIndex );
+        movingGradient[dim] = m_MovingSobelFilters[dim]->GetOutput()->GetPixel(fixedIndex );
         
         cc[dim] +=  movingGradient[dim] * fixedGradient[dim];
         fac[dim] += fixedGradient[dim] * fixedGradient[dim];

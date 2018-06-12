@@ -16,6 +16,7 @@ MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 {
 
   this->SetNumberOfRequiredOutputs( 1 );  // for the Transform
+  this->SetNumberOfRequiredInputs( 3 );
 
   m_MovingImage  = 0; // has to be provided by the user.
   m_Transform    = 0; // has to be provided by the user.
@@ -28,13 +29,11 @@ MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
   m_InitialTransformParameters.Fill( 0.0f );
   m_LastTransformParameters.Fill( 0.0f );
 
-  TransformOutputPointer transformDecorator =
-                 static_cast< TransformOutputType * >(
-                                  this->MakeOutput(0).GetPointer() );
+  TransformOutputPointer transformDecorator = static_cast< TransformOutputType * >( this->MakeOutput(0).GetPointer() );
 
   this->ProcessObject::SetNthOutput( 0, transformDecorator.GetPointer() );
 
-  this->SetNumberOfThreads( 1 );
+  this->SetNumberOfThreads( 3 );
   this->GetMultiThreader()->SetNumberOfThreads( this->GetNumberOfThreads() );
 }
 
@@ -357,6 +356,7 @@ const typename MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>::Tr
 MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 ::GetOutput() const
 {
+  //El proceso oobtiene del indice cero la imagen movible ya transformada
   return static_cast< const TransformOutputType * >( this->ProcessObject::GetOutput(0) );
 }
 
@@ -452,8 +452,7 @@ if (this->m_MovingImage.GetPointer() != movingImage )
     this->m_MovingImage = movingImage;
 
     // Process object is not const-correct so the const_cast is required here
-    this->ProcessObject::SetNthInput(0,
-                                   const_cast< MovingImageType *>( movingImage ) );
+    this->ProcessObject::SetNthInput(0, const_cast< MovingImageType *>( movingImage ) );
     this->Modified();
     }
 }
