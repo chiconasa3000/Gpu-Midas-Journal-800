@@ -27,6 +27,7 @@ string GetStdoutFromCommand(string cmd){
 			pclose(stream);
 	}
 	return data;
+
 }
 
 int main(){
@@ -36,17 +37,17 @@ int main(){
 	for(int i=0;i <stepTolerances.size(); i++){
 
 		char comman[200];
-		string command = "./../build/MultiImageRegistration ";
+        string command = "./MultiImageRegistration ";
 		strcpy(comman, command.c_str());
-		string movingImage = "../bestData/pelvisSegmIntensity.mha ";
+        string movingImage = "../Gpu-Midas-Journal-800/bestData/pelvisSegmIntensity.mha ";
 		strcat(comman,movingImage.c_str());
 		string numImages = "2 ";
 		strcat(comman, numImages.c_str());
-		string fixed1Image = "../bestData/pelvisDRRG0LspCenter.mha ";
+        string fixed1Image = "../Gpu-Midas-Journal-800/bestData/pelvisDRRG0LspCenter.mha ";
 		strcat(comman, fixed1Image.c_str());
 		string focal1Point = "0 1990 0 ";
 		strcat(comman, focal1Point.c_str());
-		string fixed2Image = "../bestData/pelvisDRRG90PsrCenter.mha ";
+        string fixed2Image = "../Gpu-Midas-Journal-800/bestData/pelvisDRRG90PsrCenter.mha ";
 		strcat(comman, fixed2Image.c_str());
 		string focal2Point = "-1990 0 0 ";
 		strcat(comman, focal2Point.c_str());
@@ -61,7 +62,7 @@ int main(){
 		strcat(comman, stepSize.c_str());
 		string schedule = "4 6 4 2 1 ";
 		strcat(comman, schedule.c_str());
-		string outputDir ="../../../crisdrive/outDirNewUmbral";
+        string outputDir ="../Gpu-Midas-Journal-800/bestData/outDirNewUmbral";
 		strcat(comman, outputDir.c_str());
 
 		string outputTextRegistration = GetStdoutFromCommand(comman);

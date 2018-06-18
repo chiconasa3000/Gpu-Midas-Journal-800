@@ -86,6 +86,7 @@ MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
         m = m_FixedMultiImage[f]->GetMTime();
         mtime = (m > mtime ? m : mtime);
     }
+    
 
     if( m_FixedMultiImageMask.size() == FTotal )
     {
@@ -155,6 +156,7 @@ MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
     {
         itkExceptionMacro(<<"Fixed images' vector is empty.");
     }
+    
     for( unsigned int fImg=0; fImg<FImgTotal; fImg++ )
     {
         if( !m_FixedMultiImage[fImg] )
