@@ -232,7 +232,7 @@ GradientDifferenceSingleImageToImageMetric<TFixedImage,TMovingImage>
             continue;
         }
 
-        //ioterate in every dimension of the fixed image
+        //iterate in every dimension of the fixed image
         for( unsigned int dim=0; dim<m_MaxDimension; dim++ )
         {
             if( m_Variance[dim] == itk::NumericTraits<GradientPixelType>::Zero )

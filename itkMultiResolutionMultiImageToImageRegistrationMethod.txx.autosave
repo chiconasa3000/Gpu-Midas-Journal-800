@@ -119,7 +119,8 @@ void MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage
     {
         itkExceptionMacro( "SetSchedules should not be used " << "if numberOfLevelves are specified using SetNumberOfLevels" );
     }
-
+    
+    //set the vectors schedules of every image
     m_FixedImagePyramidSchedule = fixedImagePyramidSchedule;
     m_MovingImagePyramidSchedule = movingImagePyramidSchedule;
 
@@ -146,12 +147,13 @@ template < typename TFixedImage, typename TMovingImage >
 void MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 ::SetNumberOfLevels( unsigned long numberOfLevels )
 {
+    //BY DEFAULT PLANNING
     if( m_ScheduleSpecified )
     {
         itkExceptionMacro( "SetNumberOfLevels should not be used "
                            << "if schedules have been specified using SetSchedules method " );
     }
-
+    
     m_NumberOfLevels = numberOfLevels;
     //number of levels specified is only a flag because if is set
     //the planning will be give
@@ -164,8 +166,7 @@ void MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage
  * Prepare the image pyramids.
  */
 template < typename TFixedImage, typename TMovingImage >
-void
-MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
+void MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 ::PreparePyramids( void )
 {
     //check the transform

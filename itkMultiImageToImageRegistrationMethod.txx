@@ -51,6 +51,9 @@ unsigned long
 MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 ::GetMTime() const
 {
+    //assign the maximum time in every process
+
+
     unsigned long mtime = Superclass::GetMTime();
     unsigned long m;
 
@@ -86,6 +89,7 @@ MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
         m = m_FixedMultiImage[f]->GetMTime();
         mtime = (m > mtime ? m : mtime);
     }
+
 
     if( m_FixedMultiImageMask.size() == FTotal )
     {
@@ -139,22 +143,27 @@ void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 /**
  * Initialize by setting the interconnects between components.
  */
+//initialize the registration
 template < typename TFixedImage, typename TMovingImage >
-void
-MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
+void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 ::Initialize() throw (ExceptionObject)
 {
+    //check moving image
     if( !m_MovingImage )
     {
         itkExceptionMacro(<<"MovingImage is not present");
     }
 
+
     const unsigned int FImgTotal = m_FixedMultiImage.size();
 
+    //check size of fixed images
     if( FImgTotal == 0 )
     {
         itkExceptionMacro(<<"Fixed images' vector is empty.");
     }
+
+    //check fixed images
     for( unsigned int fImg=0; fImg<FImgTotal; fImg++ )
     {
         if( !m_FixedMultiImage[fImg] )
@@ -163,27 +172,29 @@ MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
         }
     }
 
+    //check multi metric
     if ( !m_MultiMetric )
     {
         itkExceptionMacro(<<"MultiMetric object is not present" );
     }
 
+    //check optimizer
     if ( !m_Optimizer )
     {
         itkExceptionMacro(<<"Optimizer is not present" );
     }
 
+    //check transform
     if( !m_Transform )
     {
         itkExceptionMacro(<<"Transform is not present");
     }
 
     // Connect the transform to the Decorator.
-    TransformOutputType * transformOutput =
-            static_cast< TransformOutputType * >( this->ProcessObject::GetOutput(0) );
-
+    //the transform output is initialize
+    TransformOutputType * transformOutput = static_cast< TransformOutputType * >( this->ProcessObject::GetOutput(0) );
+    //this is setting by the transform variable
     transformOutput->Set( m_Transform.GetPointer() );
-
 
     // Check the array of interpolators
     const unsigned int InterpTotal = m_MultiInterpolator.size();
@@ -191,6 +202,8 @@ MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
     {
         itkExceptionMacro(<<"Number of interpolators is not the same as the number of fixed images.");
     }
+
+    //check interpolator
     for( unsigned int interp=0; interp<InterpTotal; interp++ )
     {
         if( !m_MultiInterpolator[interp] )
@@ -209,6 +222,7 @@ MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
     }
     else
     {
+        //check regions
         if( m_FixedMultiImageRegion.size() != FImgTotal )
         {
             itkExceptionMacro( << "The number of regions must be equal to the "
@@ -216,9 +230,8 @@ MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
         }
     }
 
-    // Setup the fixed images masks
-    if( m_FixedMultiImageMask.size() > 0 &&
-            m_FixedMultiImageMask.size() != FImgTotal )
+    // //check masks
+    if( m_FixedMultiImageMask.size() > 0 && m_FixedMultiImageMask.size() != FImgTotal )
     {
         itkExceptionMacro(<<"Fixed images masks array has an incorrect number of "
                             "elements. Allowed values are 0 or the amount of fixed images");
@@ -231,20 +244,21 @@ MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
     m_MultiMetric->SetMultiInterpolator( m_MultiInterpolator );
     m_MultiMetric->SetFixedMultiImageRegion( m_FixedMultiImageRegion );
     m_MultiMetric->SetFixedMultiImageMask( m_FixedMultiImageMask );
+    //inicialize the multi metric (OJO)
     m_MultiMetric->Initialize();
 
-    // Setup the optimizer
+    // Setup the optimizer with the multi metric (REOJO)
     m_Optimizer->SetCostFunction( m_MultiMetric );
 
-    // Validate initial transform parameters
-    if ( m_InitialTransformParameters.Size() !=
-         m_Transform->GetNumberOfParameters() )
+    // Validate initial transform parameters (number of parameters)
+    if ( m_InitialTransformParameters.Size() != m_Transform->GetNumberOfParameters() )
     {
         itkExceptionMacro(<<"Size mismatch between initial parameters and transform." <<
                           "Expected " << m_Transform->GetNumberOfParameters() << " parameters and received "
                           <<  m_InitialTransformParameters.Size() << " parameters");
     }
 
+    //update the initial position with the new parameters of transformation
     m_Optimizer->SetInitialPosition( m_InitialTransformParameters );
 }
 
@@ -273,6 +287,7 @@ void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
     }
 
     // get the results
+    //this is the result of parameters and is setted in the m_Transform variable
     m_LastTransformParameters = m_Optimizer->GetCurrentPosition();
     m_Transform->SetParameters( m_LastTransformParameters );
 }
@@ -333,8 +348,7 @@ MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
  * Generate Data
  */
 template < typename TFixedImage, typename TMovingImage >
-void
-MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
+void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 ::GenerateData()
 {
     ParametersType empty(1);
@@ -342,15 +356,18 @@ MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
     try
     {
         // initialize the interconnects between components
+        //call the initialize of the multi image regitration
         this->Initialize();
     }
     catch( ExceptionObject& err )
     {
+        //if there exist an error the last paramaeters is set to null
         m_LastTransformParameters = empty;
 
         // pass exception to caller
         throw err;
     }
+    //init the optimization (OJO)
     this->StartOptimization();
 }
 
@@ -372,13 +389,13 @@ MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
  * MakeOutput
  */
 template < typename TFixedImage, typename TMovingImage >
-DataObject::Pointer
-MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
+DataObject::Pointer MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 ::MakeOutput(unsigned int output)
 {
     switch (output)
     {
     case 0:
+        //the special transform is returned by the object
         return static_cast<DataObject*>(TransformOutputType::New().GetPointer());
         break;
     default:
@@ -391,20 +408,21 @@ MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 /**
  * AddFixedImage
  */
+
+//add only one Fixed Image
 template < typename TFixedImage, typename TMovingImage >
-void
-MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
+void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 ::AddFixedImage( const FixedImageType* fixedImage )
 {
     itkDebugMacro( "adding " << fixedImage << " to FixedMultiImage" );
 
     m_FixedMultiImage.push_back( fixedImage );
 
-    // Always remeber that input number 0 is the moving image. Fixed images go
-    // from 1 onwards.
-    this->ProcessObject::SetNthInput( m_FixedMultiImage.size(),
-                                      const_cast<FixedImageType*>(fixedImage) );
+    // Always remeber that input number 0 is the moving image. Fixed images go from 1 onwards.
+    //set begin from 1 to N fixed images
+    this->ProcessObject::SetNthInput( m_FixedMultiImage.size(), const_cast<FixedImageType*>(fixedImage) );
 
+    //modified is a flag i suppose (TODO)
     this->Modified();
 }
 
@@ -412,11 +430,11 @@ MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 /**
  * SetFixedMultiImage
  */
+//add all vector of fixed images by newFixedMultiImage
 template < typename TFixedImage, typename TMovingImage >
-void
-MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
+void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 ::SetFixedMultiImage( const FixedMultiImageType newFixedMultiImage )
-{
+{    
     itkDebugMacro( "setting FixedMultiImage" );
 
     if ( &m_FixedMultiImage != &newFixedMultiImage )
@@ -437,6 +455,7 @@ MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
         for( unsigned int fImg=0; fImg<FImgTotal; fImg++ )
         {
             const FixedImageType* fixedSingleImage = m_FixedMultiImage[fImg];
+            //it set the correct index of the fixed image
             this->ProcessObject::SetNthInput(1+fImg, const_cast<FixedImageType*>(fixedSingleImage) );
         }
         this->Modified();
