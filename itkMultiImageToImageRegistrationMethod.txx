@@ -237,9 +237,12 @@ void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
                             "elements. Allowed values are 0 or the amount of fixed images");
     }
 
+    //THE METRIC IS from itkMultiImageToImageMetric. It means from single value cost function
+    //and use the macros in order to set multiples fixed images, regions and interpolators
+
     // Setup the metric
     m_MultiMetric->SetMovingImage( m_MovingImage );
-    m_MultiMetric->SetFixedMultiImage( m_FixedMultiImage );
+    m_MultiMetric->SetFixedMultiImage( m_FixedMultiImage ); //vector of fixed images
     m_MultiMetric->SetTransform( m_Transform );
     m_MultiMetric->SetMultiInterpolator( m_MultiInterpolator );
     m_MultiMetric->SetFixedMultiImageRegion( m_FixedMultiImageRegion );
@@ -247,6 +250,7 @@ void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
     //inicialize the multi metric (OJO)
     m_MultiMetric->Initialize();
 
+    //optimizer is from SingleValuedNonLinearOptimizer
     // Setup the optimizer with the multi metric (REOJO)
     m_Optimizer->SetCostFunction( m_MultiMetric );
 
@@ -434,7 +438,7 @@ void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 template < typename TFixedImage, typename TMovingImage >
 void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 ::SetFixedMultiImage( const FixedMultiImageType newFixedMultiImage )
-{    
+{
     itkDebugMacro( "setting FixedMultiImage" );
 
     if ( &m_FixedMultiImage != &newFixedMultiImage )
@@ -443,8 +447,7 @@ void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
         const unsigned int OldFImgTotal = m_FixedMultiImage.size();
         for( unsigned int fImg=0; fImg<OldFImgTotal; fImg++ )
         {
-            DataObject* oldFixedSingleImage = this->ProcessObject::
-                    GetInput( 1+fImg );
+            DataObject* oldFixedSingleImage = this->ProcessObject::GetInput( 1+fImg );
             this->ProcessObject::RemoveInput( oldFixedSingleImage );
         }
 

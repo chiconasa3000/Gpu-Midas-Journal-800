@@ -4,7 +4,7 @@
 //this we have to resolve metric
 
 #include "itkMultiImageToImageMetric.h"
-
+#include <stdio.h>
 namespace itk {
 
 /**
@@ -90,7 +90,7 @@ void   MultiImageToImageMetric<TFixedImage,TMovingImage>::DoConnectionRevision( 
             itkExceptionMacro( << "Incorrect connection between metric " << fImg << " and its interpolator" );
         }
 
-        //there exist the transform of every fixed image
+        //there exist the transform of every fixed image (so there exist a lot of transforms)
         if( m_MultiMetric[fImg]->GetTransform() != m_Transform )
         {
             itkExceptionMacro( << "Incorrect connection between metric " << fImg << " and the transform" );
@@ -183,10 +183,10 @@ void MultiImageToImageMetric<TFixedImage,TMovingImage>
         {
             itkExceptionMacro(<<"Fixed image region is empty");
         }
+
         if ( !fRegion.Crop( fImg->GetBufferedRegion() ) )
         {
-            itkExceptionMacro(
-                        <<"FixedImageRegion does not overlap the fixed image buffered region" );
+            itkExceptionMacro(<<"FixedImageRegion does not overlap the fixed image buffered region" );
         }
 
         // Check metrics
@@ -224,6 +224,7 @@ void MultiImageToImageMetric<TFixedImage,TMovingImage>
     }
 
     os << indent << "Transform:     " << m_Transform.GetPointer() << std::endl;
+
     for( unsigned int i=0; i<m_MultiInterpolator.size(); i++ )
     {
         os << indent << "MultiInterpolator[" << i << "]: " << m_MultiInterpolator[i] << std::endl;
@@ -287,6 +288,7 @@ template <class TFixedImage, class TMovingImage>
 void MultiImageToImageMetric<TFixedImage,TMovingImage>
 ::Initialize(void) throw ( ExceptionObject )
 {
+    //THE METRIC is a VECTOR of METRICS is from Image to Image Metric
     //of the vector of fixed images obtain the size
     const unsigned int FImgTotal = m_FixedMultiImage.size();
     if( FImgTotal == 0 )
@@ -348,6 +350,7 @@ void MultiImageToImageMetric<TFixedImage,TMovingImage>
 
     for( unsigned int fImg=0; fImg < FImgTotal; fImg++ )
     {
+        std::cout<<"CurrentMetric: "<<fImg<<std::endl;
         //the metric set every fixed image
         m_MultiMetric[fImg]->SetFixedImage( m_FixedMultiImage[fImg] );
         m_MultiMetric[fImg]->SetFixedImageRegion( m_FixedMultiImageRegion[fImg] ); //region
@@ -473,7 +476,8 @@ MultiImageToImageMetric<TFixedImage,TMovingImage>
     unsigned int FImgTotal = m_FixedMultiImage.size();
     for( unsigned int fImgNum=0; fImgNum<FImgTotal; fImgNum++ )
     {
-        //get the metric value for every image with the parameters (OJO)
+        m_MultiMetric[fImgNum]->Initialize();
+        //it only add but not divide with the number (collect the total of metrics)
         measure += m_MultiMetric[fImgNum]->GetValue( parameters );
     }
     return measure;

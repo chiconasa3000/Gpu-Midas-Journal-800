@@ -3,7 +3,7 @@
 
 #include "itkMultiResolutionMultiImageToImageRegistrationMethod.h"
 #include <itkRecursiveMultiResolutionPyramidImageFilter.h>
-
+#include <stdio.h>
 namespace itk
 {
 
@@ -39,6 +39,7 @@ template < typename TFixedImage, typename TMovingImage >
 void MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 ::Initialize() throw (ExceptionObject)
 {
+    std::cout<<"CurrentLevel: "<<m_CurrentLevel<<std::endl;
     //the superclass is initialize (OJO)
     Superclass::Initialize();
 
@@ -120,6 +121,7 @@ void MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage
         itkExceptionMacro( "SetSchedules should not be used " << "if numberOfLevelves are specified using SetNumberOfLevels" );
     }
 
+    //set the vectors schedules of every image
     m_FixedImagePyramidSchedule = fixedImagePyramidSchedule;
     m_MovingImagePyramidSchedule = movingImagePyramidSchedule;
 
@@ -146,6 +148,7 @@ template < typename TFixedImage, typename TMovingImage >
 void MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 ::SetNumberOfLevels( unsigned long numberOfLevels )
 {
+    //BY DEFAULT PLANNING
     if( m_ScheduleSpecified )
     {
         itkExceptionMacro( "SetNumberOfLevels should not be used "
@@ -164,8 +167,7 @@ void MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage
  * Prepare the image pyramids.
  */
 template < typename TFixedImage, typename TMovingImage >
-void
-MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
+void MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 ::PreparePyramids( void )
 {
     //check the transform
@@ -272,6 +274,7 @@ MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
     typedef typename FixedImageRegionType::SizeType         SizeType;
     typedef typename FixedImageRegionType::IndexType        IndexType;
 
+    //it never is used
     ScheduleType movingschedule = m_MovingImagePyramid->GetSchedule();
     //itkDebugMacro ( << "MovingImage schedule: " << movingschedule );
 
@@ -300,16 +303,15 @@ MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
             {
                 const float scaleFactor = static_cast<float>( schedule[ level ][ dim ] );
 
-                size[ dim ] = static_cast<typename SizeType::SizeValueType>(
-                            vcl_floor(static_cast<float>( inputSize[ dim ] ) / scaleFactor ) );
+                size[ dim ] = static_cast<typename SizeType::SizeValueType>(vcl_floor(static_cast<float>( inputSize[ dim ] ) / scaleFactor ) );
                 if( size[ dim ] < 1 )
                 {
                     size[ dim ] = 1;
                 }
 
-                start[ dim ] = static_cast<typename IndexType::IndexValueType>(
-                            vcl_ceil(static_cast<float>( inputStart[ dim ] ) / scaleFactor ) );
+                start[ dim ] = static_cast<typename IndexType::IndexValueType>(vcl_ceil(static_cast<float>( inputStart[ dim ] ) / scaleFactor ) );
             }
+            //it doesn't use the rinkimagefilter but it reduce the region with new size and new start
             this->m_FixedMultiImageRegionPyramid[f][level].SetSize( size );
             this->m_FixedMultiImageRegionPyramid[f][level].SetIndex( start );
         }
@@ -346,6 +348,7 @@ MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 
     os << indent << "FixedImagePyramidSchedule : " << std::endl;
     os << m_FixedImagePyramidSchedule << std::endl;
+
     os << indent << "MovingImagePyramidSchedule : " << std::endl;
     os << m_MovingImagePyramidSchedule << std::endl;
 }
@@ -355,14 +358,15 @@ MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
  * Generate Data
  */
 template < typename TFixedImage, typename TMovingImage >
-void
-MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
+void MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 ::GenerateData()
 {
     m_Stop = false;
 
+    //prepare data and reduce the region
     this->PreparePyramids();
 
+    //
     for ( m_CurrentLevel = 0; m_CurrentLevel < m_NumberOfLevels; m_CurrentLevel++ )
     {
         // Invoke an iteration event.
@@ -379,6 +383,7 @@ MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
         try
         {
             // Initialize the interconnects between components
+            //initialize the multi metric
             this->Initialize();
         }
         catch( ExceptionObject& err )
@@ -389,9 +394,10 @@ MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
             throw err;
         }
 
-        // Do the optimization on each resolution level
+        // Do the optimization on each resolution level (every level)
         try
         {
+            //init the optimization (OJO)
             this->m_Optimizer->StartOptimization();
         }
         catch( ExceptionObject& err )
@@ -405,12 +411,14 @@ MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
         }
 
         // Get the results
+        //this is the result with transformation parameteres (OJO)
         this->m_LastTransformParameters = this->m_Optimizer->GetCurrentPosition();
         this->m_Transform->SetParameters( this->m_LastTransformParameters );
 
         // Setup the initial parameters for next level
         if ( m_CurrentLevel < m_NumberOfLevels - 1 )
         {
+            //the initial parameters is updated in order to use in the next level
             m_InitialTransformParametersOfNextLevel = this->m_LastTransformParameters;
         }
     } //for ( m_CurrentLevel = 0; m_CurrentLevel < m_NumberOfLevels; m_CurrentLevel++ )
@@ -425,6 +433,7 @@ unsigned long
 MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 ::GetMTime() const
 {
+    //get the maximum time
     unsigned long mtime = Superclass::GetMTime();
     unsigned long m;
 

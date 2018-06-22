@@ -35,20 +35,6 @@ set(FILES_TXX ${TXX_DIR}/itkNormalizedGradientCorrelationImageToImageMetric.txx)
 set(GPU_DIR "/home/citesoft01/BasicPrograms/InsightToolkit-4.13.0/Modules/Filtering/GPUImageFilterBase/include")
 set(FILES_GPU ${GPU_DIR}/itkGPUNeighborhoodOperatorImageFilter.hxx ${GPU_DIR}/itkGPUNeighborhoodOperatorImageFilter.h)
 
-
-#Add project's executables
-add_executable(ImageCompare ImageCompare.cxx) 
-target_link_libraries(ImageCompare ${Libraries})
-
-add_executable(MultiImageSearch Examples/MultiImageSearch.cxx)
-target_link_libraries(MultiImageSearch ${Libraries})
-
-add_executable(ReadCmd Examples/readCmd.cpp)
-target_link_libraries(ReadCmd ${Libraries})
-
-add_executable(MultiImageRegistration Examples/MultiImageRegistration.cxx  ${TXX_FILES} ${FILES_TXX} ${FILES_GPU})
-target_link_libraries(MultiImageRegistration ${Libraries})
-
 set(HeaderFiles
 itkGradientDifferenceMultiImageToImageMetric.h
 itkGradientDifferenceSingleImageToImageMetric.h
@@ -71,6 +57,21 @@ itkPatternIntensityImageToImageMetric.txx
 itkPatternIntensityMultiImageToImageMetric.h
 itkPatternIntensityMultiImageToImageMetric.txx
 )
+
+#Add project's executables
+add_executable(ImageCompare ImageCompare.cxx) 
+target_link_libraries(ImageCompare ${Libraries})
+
+add_executable(MultiImageSearch Examples/MultiImageSearch.cxx)
+target_link_libraries(MultiImageSearch ${Libraries})
+
+add_executable(ReadCmd Examples/readCmd.cpp)
+target_link_libraries(ReadCmd ${Libraries})
+
+add_executable(MultiImageRegistration Examples/MultiImageRegistration.cxx  ${TXX_FILES} ${FILES_TXX} ${FILES_GPU} ${HeaderFiles})
+target_link_libraries(MultiImageRegistration ${Libraries})
+
+
 install(FILES ${HeaderFiles} DESTINATION include COMPONENT Development)
 
 install(TARGETS MultiImageSearch DESTINATION bin COMPONENT Runtime)
