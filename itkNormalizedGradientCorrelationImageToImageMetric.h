@@ -79,24 +79,26 @@ public:
   typedef typename FixedImageType::PixelType						FixedImagePixelType;
 
   itkStaticConstMacro(FixedImageDimension, unsigned int, TFixedImage::ImageDimension);
+
+  //Tipo de imagen de salida proveniente de una imagen normal de ITK
   typedef itk::Image<RealType, itkGetStaticConstMacro(FixedImageDimension)> GradientImageType;
 	
   //para forma las imagenes de gpu solo se usa el tipo de pixel compartido en las imagenes normales de itk
-  typedef GPUImage< FixedImagePixelType, itkGetStaticConstMacro(FixedImageDimension)> GpuFixedImageType;
-  typedef GPUImage< MovingImagePixelType, itkGetStaticConstMacro(FixedImageDimension)> GpuMovingImageType;
+  typedef itk::GPUImage< FixedImagePixelType, itkGetStaticConstMacro(FixedImageDimension)> GpuFixedImage;
+  typedef itk::GPUImage< MovingImagePixelType, itkGetStaticConstMacro(FixedImageDimension)> GpuMovingImage;
 
-  //typedef GPUImage< RealType, itkGetStaticConstMacro(FixedImageDimension)> OutputImageType;
+  typedef itk::GPUImage< RealType, itkGetStaticConstMacro(FixedImageDimension)> OutputImageType;
   //typedef GPUImage< RealType, itkGetStaticConstMacro(FixedImageDimension)> OutputImageType;
   
   //es correcto insertar como tipo la imagen de GPU
-  typedef typename itk::GPUTraits< GpuFixedImageType >::Type  GpuFixedImage;
+  typedef typename itk::GPUTraits< FixedImageType >::Type  GpuFixedImageType;
   //peligro: se ha dado como tipo de imagen la miams de ingreso 
   //el vector de filtros sobel acepata el tipo de la imagen de entrada
   //esto da a entender que los tipos de las imagenes de salidas son solo
   //declaradas para los resultados y solo se definen.
-  typedef typename itk::GPUTraits< GpuMovingImageType >::Type GpuMovingImage;
+  typedef typename itk::GPUTraits< MovingImageType >::Type GpuMovingImageType;
 
-  //typedef typename itk::GPUTraits< GpuFixedImageType >::Type GpuOutputImage;
+  typedef typename itk::GPUTraits< FixedImageType >::Type GpuOutputImageType;
 
   //es correcto usar el pointer porque proviene de la clase GPUTraits
   //no se instancia ya que esta solo apuntara a lo que devuelva la conversion
@@ -104,9 +106,9 @@ public:
   //typedef SmartPointer< const Self >                                             ConstPointer;
 
   //typename GPUInputImage::ConstPointer ptrGpuInputImageDim1; 
-  typename GpuFixedImage::ConstPointer m_ptrosGpuFixedImages[ itkGetStaticConstMacro( FixedImageDimension ) ];
-  typename GpuMovingImage::ConstPointer m_ptrosGpuMovingImages[ itkGetStaticConstMacro( FixedImageDimension ) ];
-  //typename GpuMovingImage::ConstPointer m_ptrosGpuOutputImages[ itkGetStaticConstMacro( FixedImageDimension ) ];
+  typename GpuFixedImageType::ConstPointer m_ptrosGpuFixedImages[ itkGetStaticConstMacro( FixedImageDimension ) ];
+  typename GpuMovingImageType::ConstPointer m_ptrosGpuMovingImages[ itkGetStaticConstMacro( MovingImageDimension ) ];
+  typename GpuMovingImageType::ConstPointer m_ptrosGpuOutputImages[ itkGetStaticConstMacro( FixedImageDimension ) ];
   //typename GPUOutputImage::ConstPointer ptrGpuOutputImageDim1;
   //el pointer no es tuyo
   //typedef SmartPointer<GPUInputImage> myPointer;
@@ -143,15 +145,13 @@ public:
 
 
   /** Get the derivatives of the match measure. */
-  void GetDerivative( const TransformParametersType & parameters,
-                            DerivativeType  & derivative ) const;
+  void GetDerivative( const TransformParametersType & parameters, DerivativeType  & derivative ) const;
 
   /**  Get the value for single valued optimizers. */
   MeasureType GetValue( const TransformParametersType & parameters ) const;
 
   /**  Get value and derivatives for multiple valued optimizers. */
-  void GetValueAndDerivative( const TransformParametersType & parameters,
-                              MeasureType& Value, DerivativeType& derivative ) const;
+  void GetValueAndDerivative( const TransformParametersType & parameters, MeasureType& Value, DerivativeType& derivative ) const;
 
   /** Initialize the Metric by making sure that all the components
    *  are present and plugged together correctly     */
@@ -171,8 +171,8 @@ protected:
   void PrintSelf(std::ostream& os, Indent indent) const;
   /**Define the neighbor operator filter byu GPU**/
   //este filtro debe ser desplegado para las imagenes por GPU
-  typedef itk::GPUNeighborhoodOperatorImageFilter< GpuFixedImage, RealType, RealOutputPixelValueType > GpuFixedNeighboorFilterType;
-  typedef itk::GPUNeighborhoodOperatorImageFilter< GpuMovingImage, RealType, RealOutputPixelValueType > GpuMovingNeighboorFilterType;
+  typedef itk::GPUNeighborhoodOperatorImageFilter< GpuFixedImage, OutputImageType, RealOutputPixelValueType > GpuFixedNeighboorFilterType;
+  typedef itk::GPUNeighborhoodOperatorImageFilter< GpuMovingImage, OutputImageType, RealOutputPixelValueType > GpuMovingNeighboorFilterType;
   //typedef NeighborhoodOperatorImageFilter<FixedImageType, GradientImageType> SobelFilterType;
 
 private:
@@ -197,7 +197,7 @@ private:
   //estas condiciones limitantes deben ser declaradas con las imagenes de GPU
   //en el filtro con operador gauss no se usaban estos tipos de cond
   ZeroFluxNeumannBoundaryCondition<GpuFixedImage> m_FixedBoundaryCondition;
-  ZeroFluxNeumannBoundaryCondition<GpuMovingImage> m_MovingBoundaryCondition;
+  ZeroFluxNeumannBoundaryCondition<GpuFixedImage> m_MovingBoundaryCondition;
 
 };
 

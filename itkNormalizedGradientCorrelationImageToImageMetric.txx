@@ -63,7 +63,14 @@ void NormalizedGradientCorrelationImageToImageMetric<TFixedImage,TMovingImage>
 
         //cada sobel filtro como puntero es instanciado
         //debemos tener cuidado con el tipo de puntero
-        m_ptrosGpuFixedImages[dim] = dynamic_cast< const GpuFixedImage * >(this->GetFixedImage());
+
+        typedef itk::Image< short, 3u >  ImageType;
+        //ImageType::ConstPointer image = itk::GPUImage<short,3u>::New().GetPointer();
+        ImageType::ConstPointer image = this->GetFixedImage();
+
+        //m_ptrosGpuFixedImages[dim] = dynamic_cast< const itk::GPUImage<short,3u> *>(image.GetPointer());
+        m_ptrosGpuFixedImages[dim] = dynamic_cast< const itk::GPUImage<short,3u> *>(image.GetPointer()->GetSource().GetPointer()->GetOutput());
+        m_ptrosGpuFixedImages[dim].Print(std::cout);
         //this->ptrGpuInputImage = dynamic_cast< const GPUInputImage * >(this->GetFixedImage());
         //primero instanciamos el respector puntero al filtro sobel
         m_FixedNeighborFilters[dim] = GpuMovingNeighboorFilterType::New();
@@ -91,7 +98,7 @@ void NormalizedGradientCorrelationImageToImageMetric<TFixedImage,TMovingImage>
 
         m_FixedNeighborFilters[dim]->GetOutput()->SetRequestedRegion(this->GetFixedImageRegion() );
         //m_FixedSobelFilters[dim]->Update();
-        //m_FixedSobelFilters[dim]->GetOutput()->UpdateBuffers();
+        m_FixedNeighborFilters[dim]->GetOutput()->UpdateBuffers();
 
     }
 
@@ -111,14 +118,14 @@ void NormalizedGradientCorrelationImageToImageMetric<TFixedImage,TMovingImage>
         //std::cout<<"dimMoving: "<<dim<<std::endl;
 
         //primero instanciamos el filtro sobel del tipo de imagen
-        m_ptrosGpuMovingImages[dim] = dynamic_cast<const GpuMovingImage *>(m_ResampleImageFilter->GetOutput());
+        m_ptrosGpuMovingImages[dim] = dynamic_cast<const GpuMovingImageType *>(m_ResampleImageFilter->GetOutput());
         m_MovingNeighborFilters[dim] = GpuMovingNeighboorFilterType::New();
         m_MovingNeighborFilters[dim]->OverrideBoundaryCondition( &m_MovingBoundaryCondition );
         m_MovingNeighborFilters[dim]->SetOperator( m_SobelOperators[dim] );
         m_MovingNeighborFilters[dim]->SetInput(m_ptrosGpuMovingImages[dim]);
         //m_MovingSobelFilters[dim]->Update();
         m_MovingNeighborFilters[dim]->GetOutput()->SetRequestedRegion(this->GetFixedImageRegion());
-        //m_MovingSobelFilters[dim]->GetOutput()->UpdateBuffers();
+        m_MovingNeighborFilters[dim]->GetOutput()->UpdateBuffers();
     }
 }
 

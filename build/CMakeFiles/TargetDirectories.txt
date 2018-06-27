@@ -1,0 +1,11 @@
+/home/citesoft01/Frameworks/Qt-Frameworks1/Gpu-Midas-Journal-800/build/CMakeFiles/install/strip.dir
+/home/citesoft01/Frameworks/Qt-Frameworks1/Gpu-Midas-Journal-800/build/CMakeFiles/install.dir
+/home/citesoft01/Frameworks/Qt-Frameworks1/Gpu-Midas-Journal-800/build/CMakeFiles/list_install_components.dir
+/home/citesoft01/Frameworks/Qt-Frameworks1/Gpu-Midas-Journal-800/build/CMakeFiles/MultiImageSearch.dir
+/home/citesoft01/Frameworks/Qt-Frameworks1/Gpu-Midas-Journal-800/build/CMakeFiles/ReadCmd.dir
+/home/citesoft01/Frameworks/Qt-Frameworks1/Gpu-Midas-Journal-800/build/CMakeFiles/rebuild_cache.dir
+/home/citesoft01/Frameworks/Qt-Frameworks1/Gpu-Midas-Journal-800/build/CMakeFiles/MultiImageRegistration.dir
+/home/citesoft01/Frameworks/Qt-Frameworks1/Gpu-Midas-Journal-800/build/CMakeFiles/install/local.dir
+/home/citesoft01/Frameworks/Qt-Frameworks1/Gpu-Midas-Journal-800/build/CMakeFiles/ImageCompare.dir
+/home/citesoft01/Frameworks/Qt-Frameworks1/Gpu-Midas-Journal-800/build/CMakeFiles/test.dir
+/home/citesoft01/Frameworks/Qt-Frameworks1/Gpu-Midas-Journal-800/build/CMakeFiles/edit_cache.dir

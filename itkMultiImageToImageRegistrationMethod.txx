@@ -460,6 +460,7 @@ void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
             const FixedImageType* fixedSingleImage = m_FixedMultiImage[fImg];
             //it set the correct index of the fixed image
             this->ProcessObject::SetNthInput(1+fImg, const_cast<FixedImageType*>(fixedSingleImage) );
+
         }
         this->Modified();
     }

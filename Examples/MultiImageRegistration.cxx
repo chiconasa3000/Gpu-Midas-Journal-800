@@ -144,8 +144,8 @@ int main(int argc, char* argv[] )
 
     const unsigned int Dimensions = 3;
 
-    typedef itk::Image<float,Dimensions>  FixedImageType;
-    typedef itk::Image<float,Dimensions>  MovingImageType;
+    typedef itk::Image<short int,Dimensions>  FixedImageType;
+    typedef itk::Image<short int,Dimensions>  MovingImageType;
 
     //create the type of the registration
     typedef itk::MultiResolutionMultiImageToImageRegistrationMethod< FixedImageType,MovingImageType >    RegistrationType;
@@ -165,7 +165,7 @@ int main(int argc, char* argv[] )
     //----------------------------------------------------------------------------
     // Create the transform
     //----------------------------------------------------------------------------
-    typedef itk::Similarity3DTransform< double > TransformType;
+    typedef itk::Similarity3DTransform< double> TransformType;
 
     TransformType::Pointer transform = TransformType::New();
     transform->SetIdentity();

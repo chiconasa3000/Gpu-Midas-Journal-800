@@ -1,4 +1,4 @@
- #define itkGetConstStdVectorMacro(name,type) \
+#define itkGetConstStdVectorMacro(name,type) \
   virtual const type & Get##name () \
   { \
     itkDebugMacro("returning " << #name ); \
