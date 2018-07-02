@@ -171,7 +171,7 @@ public:
       This method is executed at every level of the pyramid with the
       values corresponding to this resolution
    */
-  void Initialize() throw (ExceptionObject);
+  void Initialize() noexcept(false);
 
 protected:
   MultiResolutionMultiImageToImageRegistrationMethod();

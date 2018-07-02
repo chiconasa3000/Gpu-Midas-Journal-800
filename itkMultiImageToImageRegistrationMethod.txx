@@ -4,6 +4,7 @@
 #include "itkMultiImageToImageRegistrationMethod.h"
 #include "itkRescaleIntensityImageFilter.h"
 #include "itkCastImageFilter.h"
+#include "stdio.h"
 namespace itk
 {
 
@@ -146,7 +147,7 @@ void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 //initialize the registration
 template < typename TFixedImage, typename TMovingImage >
 void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
-::Initialize() throw (ExceptionObject)
+::Initialize() noexcept(false)
 {
     //check moving image
     if( !m_MovingImage )
@@ -241,12 +242,17 @@ void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
     //and use the macros in order to set multiples fixed images, regions and interpolators
 
     // Setup the metric
+    m_MultiMetric->DebugOn();
     m_MultiMetric->SetMovingImage( m_MovingImage );
     m_MultiMetric->SetFixedMultiImage( m_FixedMultiImage ); //vector of fixed images
     m_MultiMetric->SetTransform( m_Transform );
     m_MultiMetric->SetMultiInterpolator( m_MultiInterpolator );
     m_MultiMetric->SetFixedMultiImageRegion( m_FixedMultiImageRegion );
     m_MultiMetric->SetFixedMultiImageMask( m_FixedMultiImageMask );
+
+    // Save the dataobjects from the process object
+    saveDataObjectInputs();
+
     //inicialize the multi metric (OJO)
     m_MultiMetric->Initialize();
 
@@ -428,6 +434,7 @@ void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 
     //modified is a flag i suppose (TODO)
     this->Modified();
+
 }
 
 
@@ -485,6 +492,19 @@ void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
         this->ProcessObject::SetNthInput(0, const_cast< MovingImageType *>( movingImage ) );
         this->Modified();
     }
+}
+
+template <typename TFixedImage, typename TMovingImage >
+void MultiImageToImageRegistrationMethod<TFixedImage, TMovingImage>
+::saveDataObjectInputs()
+{
+    const unsigned int inputsTotal = m_FixedMultiImage.size() + 1;
+    DataObject ** inputs = new DataObject*[inputsTotal];
+    for(int i=0; i<inputsTotal; i++){
+        inputs[i] = this->ProcessObject::GetInput(i);
+        //inputs[i][0].Print(std::cout);
+    }
+    m_MultiMetric->setInputsFromProcessObject(inputs);
 }
 
 

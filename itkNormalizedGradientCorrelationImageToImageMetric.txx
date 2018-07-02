@@ -4,9 +4,11 @@
 
 #include "itkNormalizedGradientCorrelationImageToImageMetric.h"
 #include <itkImageRegionConstIteratorWithIndex.h>
-
-
+#include "globalsvars.h"
 #include <stdio.h>
+#include "itkImageDuplicator.h"
+#include "itkImageRegionIterator.h"
+
 namespace itk
 {
 
@@ -19,6 +21,7 @@ NormalizedGradientCorrelationImageToImageMetric<TFixedImage,TMovingImage>
 {
     m_DerivativeDelta = 0.001;
     m_MaxDimension = FixedImageDimension;
+    //void setImagesFromProcessObject();
 }
 
 
@@ -50,55 +53,69 @@ void NormalizedGradientCorrelationImageToImageMetric<TFixedImage,TMovingImage>
 
     for (unsigned int dim=0; dim<m_MaxDimension; dim++)
     {
-        //std::cout<<"dimFixed: "<<dim<<std::endl;
         //el operador es sobel no es gaussiano
         m_SobelOperators[dim].SetRadius( 1 );
         m_SobelOperators[dim].SetDirection( dim );
         m_SobelOperators[dim].CreateDirectional();
 
-        /*operador gaussiano
-        m_SobelOperators[dim].SetDirection( 0 );
-        m_SobelOperators[dim].SetVariance( 8.0 );
-        m_SobelOperators[dim].CreateDirectional();  */
-
         //cada sobel filtro como puntero es instanciado
         //debemos tener cuidado con el tipo de puntero
 
         typedef itk::Image< short, 3u >  ImageType;
-        //ImageType::ConstPointer image = itk::GPUImage<short,3u>::New().GetPointer();
-        ImageType::ConstPointer image = this->GetFixedImage();
+        //imagen base que se instancia como imagen GPU
+        ImageType::Pointer image = itk::GPUImage<short,3u>::New().GetPointer();
+        //ImageType *image = itk::GPUImage<short,3u>::New();
 
-        //m_ptrosGpuFixedImages[dim] = dynamic_cast< const itk::GPUImage<short,3u> *>(image.GetPointer());
-        m_ptrosGpuFixedImages[dim] = dynamic_cast< const itk::GPUImage<short,3u> *>(image.GetPointer()->GetSource().GetPointer()->GetOutput());
-        m_ptrosGpuFixedImages[dim].Print(std::cout);
-        //this->ptrGpuInputImage = dynamic_cast< const GPUInputImage * >(this->GetFixedImage());
-        //primero instanciamos el respector puntero al filtro sobel
+        DataObject * p = &itk::inputsProcessObject[1][0];
+        p->Print(std::cout);
+
+        ImageType::Pointer normalImage = ImageType::New();
+        normalImage->CopyInformation(&itk::inputsProcessObject[1][0]);
+        normalImage->SetRegions(normalImage->GetLargestPossibleRegion());
+        normalImage->Allocate();
+        normalImage->Update();
+
+        pointerWriter writer = WriterType::New();
+         writer->SetFileName("normalImageGPU.mha");
+         writer->SetInput(normalImage);
+         writer->Update();
+
+        /*typedef itk::ImageDuplicator< ImageType > DuplicatorType;
+         DuplicatorType::Pointer duplicator = DuplicatorType::New();
+         duplicator->SetInputImage(this->GetFixedImage());
+         duplicator->Update();
+         ImageType::Pointer clonedImage = duplicator->GetOutput();*/
+
+        image->SetRegions(normalImage->GetLargestPossibleRegion());
+        image->Allocate();
+
+
+
+        itk::ImageRegionConstIterator<ImageType> inputIterator(normalImage, normalImage->GetLargestPossibleRegion());
+        itk::ImageRegionIterator<ImageType> outputIterator(image, image->GetLargestPossibleRegion());
+
+        while(!inputIterator.IsAtEnd())
+        {
+            outputIterator.Set(inputIterator.Get());
+            ++inputIterator;
+            ++outputIterator;
+        }
+
+        //Data object puesto a un puntero
+        //DataObject * p = &itk::inputsProcessObject[1][0];
+
+        //Copiar la data del dataObject a esta imagen especial
+        //image->CopyInformation(p);
+
+        m_ptrosGpuFixedImages[dim] = dynamic_cast< const itk::GPUImage<short,3u> *>(image.GetPointer());
+        //m_ptrosGpuFixedImages[dim] = dynamic_cast< const itk::GPUImage<short,3u> *>(p);
         m_FixedNeighborFilters[dim] = GpuMovingNeighboorFilterType::New();
-        //la funcion recibe un condicion que tiene como plantilla las imagenes normales de itk
-        //pero sabemos que el filtro esta desplegado para las imagenes GPU
         m_FixedNeighborFilters[dim]->OverrideBoundaryCondition(&m_FixedBoundaryCondition );
-        //m_FixedSobelFilters[dim]->SetInput( this->GetFixedImage() );
-
-
-
-        //m_FixedSobelFilters[dim]->SetInput(this->ptrGpuInputImage);
-        //imagetoimagefilter que asumo que usa el imagetoimagemetric
-        //de acuerdo a los parametros de plantilla que recibe
-        //se colocara el numero de imagenes requeridas tanto para la entrada
-        //como para la salida
-
-        //en este caso debemos buscar el origen de image to image metric
-
-        //el numero que va al inicio del set input es el indice de la imagen
-        //para este caso al ser set inputs independientes para cada filtro
-        //se debe colocar el setnumberofrequiredinputs(numero de imagenes fijas)
         m_FixedNeighborFilters[dim]->SetOperator( m_SobelOperators[dim] );
+        //m_FixedSobelFilters[dim]->SetInput( this->GetFixedImage() );
         m_FixedNeighborFilters[dim]->SetInput(m_ptrosGpuFixedImages[dim]);
-
-
         m_FixedNeighborFilters[dim]->GetOutput()->SetRequestedRegion(this->GetFixedImageRegion() );
-        //m_FixedSobelFilters[dim]->Update();
-        m_FixedNeighborFilters[dim]->GetOutput()->UpdateBuffers();
+        //m_FixedNeighborFilters[dim]->GetOutput()->UpdateBuffers();
 
     }
 

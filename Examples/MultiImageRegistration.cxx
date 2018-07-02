@@ -457,7 +457,7 @@ int main(int argc, char* argv[] )
     try
     {
         //apply the registration (OJO)
-        registration->Print( std::cout );
+        //registration->Print( std::cout );
         registration->Update();
     }
     catch( itk::ExceptionObject & e )

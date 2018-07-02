@@ -58,7 +58,7 @@ namespace itk{
     typedef typename BaseMetricType::Pointer BaseMetricPointer;
     virtual BaseMetricPointer NewSingleMetric();
 
-    virtual void DoNumberRevision(void) const throw ( ExceptionObject );
+    virtual void DoNumberRevision(void) const noexcept(false);
 
   private:
     PatternIntensityMultiImageToImageMetric(const Self&); //purposely not implemented

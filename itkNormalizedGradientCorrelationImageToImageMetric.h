@@ -6,7 +6,7 @@
 #include <itkSobelOperator.h>
 #include <itkNeighborhoodOperatorImageFilter.h>
 #include <itkResampleImageFilter.h>
-
+#include "itkImage.h"
 #include "itkGPUImage.h"
 #include "itkGPUKernelManager.h"
 #include "itkGPUContextManager.h"
@@ -14,6 +14,8 @@
 #include "itkGPUNeighborhoodOperatorImageFilter.h"
 #include "itkTimeProbe.h"
 #include <itkNumericTraits.h>
+#include "itkImageFileWriter.h"
+
 
 namespace itk
 {
@@ -118,6 +120,10 @@ public:
 
   //typename  ptrGpuOutputImage;
 
+  typedef itk::ImageFileWriter< TFixedImage  > WriterType;
+  typedef typename WriterType::Pointer pointerWriter;
+
+
   typedef RealType RealOutputPixelType;
   //el tipo de operador que proviene del tipo de pixel de la imagen de salida
   //debe provenir de la imagen de GPU
@@ -164,6 +170,9 @@ public:
 
   /** Set the parameters defining the Transform. */
   void SetTransformParameters( const TransformParametersType & parameters ) const;
+
+  /** Set for every metric the complete vector of images*/
+  //void setImagesFromProcessObject();
 
 protected:
   NormalizedGradientCorrelationImageToImageMetric();

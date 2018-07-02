@@ -33,7 +33,7 @@ PatternIntensityMultiImageToImageMetric<TFixedImage,TMovingImage>::NewSingleMetr
 template <class TFixedImage, class TMovingImage>
 void
 PatternIntensityMultiImageToImageMetric<TFixedImage,TMovingImage>
-::DoNumberRevision(void) const throw ( ExceptionObject )
+::DoNumberRevision(void) const noexcept(false)
 {
     Superclass::DoNumberRevision();
 
@@ -63,7 +63,7 @@ PatternIntensityMultiImageToImageMetric<TFixedImage,TMovingImage>
 }
 
 /*
- * PrintSelf
+ * PrintSelfb
  */
 template < typename TFixedImage, typename TMovingImage >
 void

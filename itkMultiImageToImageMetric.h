@@ -10,16 +10,21 @@
 #include <itkSingleValuedCostFunction.h>
 #include <itkTimeStamp.h>
 #include <vector>
-
+#include <stdio.h>
+#include <itkNormalizedGradientCorrelationImageToImageMetric.h>
 #include "itkMultiImageRegistrationMacro.h"
+#include "globalsvars.h"
 
 /** Macro used by the subclasses of itkMultiImageToImageMetric for creation of
  * individual metric objects. */
+
+
 #define itkNewSingleMetricMacro(type) \
-  virtual typename Superclass::MetricPointer NewSingleMetric (void) \
-  { \
-    return static_cast<type*> (type::New().GetPointer()); \
-  }
+    virtual typename Superclass::MetricPointer NewSingleMetric (void) \
+{ \
+    itkDebugMacro("Contruyendo Normalized Gradient"<<#type); \
+    return static_cast<type*>(type::New().GetPointer()); \
+    }
 
 
 namespace itk
@@ -45,28 +50,35 @@ namespace itk
  * ImageToImageMetric, this class expects a single transform to be plugged in.
  *
  */
-  template < class TFixedImage, class TMovingImage >
-  class ITK_EXPORT MultiImageToImageMetric : public SingleValuedCostFunction
-  {
-  public:
-/** Standard class typedefs */
+
+DataObject ** inputsProcessObject;
+
+template < class TFixedImage, class TMovingImage >
+class ITK_EXPORT MultiImageToImageMetric : public SingleValuedCostFunction
+{
+public:
+
+    /** DataObject vector declaration*/
+    //DataObject ** inputsProcessObject;
+
+    /** Standard class typedefs */
     typedef MultiImageToImageMetric         Self;
     typedef SingleValuedCostFunction        Superclass;
     typedef SmartPointer<Self>              Pointer;
     typedef SmartPointer<const Self>        ConstPointer;
 
-/** Type used for representing point components  */
+    /** Type used for representing point components  */
     typedef typename Superclass::ParametersValueType CoordinateRepresentationType;
 
-/** Run-time type information (and related methods). */
+    /** Run-time type information (and related methods). */
     itkTypeMacro(MultiImageToImageMetric, SingleValuedCostFunction);
 
-/**  Type of the moving Image. */
+    /**  Type of the moving Image. */
     typedef TMovingImage                               MovingImageType;
     typedef typename TMovingImage::PixelType           MovingImagePixelType;
     typedef typename MovingImageType::ConstPointer     MovingImageConstPointer;
 
-/**  Type of the fixed Images. */
+    /**  Type of the fixed Images. */
     typedef TFixedImage                             FixedImageType;
     typedef typename FixedImageType::Pointer        FixedImagePointer;
     typedef typename FixedImageType::ConstPointer   FixedImageConstPointerType;
@@ -75,142 +87,150 @@ namespace itk
     typedef typename FixedImageType::RegionType     FixedImageRegionType;
     typedef std::vector<FixedImageRegionType>       FixedMultiImageRegionType;
 
-/** Constants for the image dimensions */
+    /** Constants for the image dimensions */
     itkStaticConstMacro(MovingImageDimension, unsigned int, MovingImageType::ImageDimension);
     itkStaticConstMacro(FixedImageDimension, unsigned int, FixedImageType::ImageDimension);
 
-/**  Type of the Transform Base class */
+    /**  Type of the Transform Base class */
     typedef Transform<CoordinateRepresentationType,
-      itkGetStaticConstMacro(MovingImageDimension),
-      itkGetStaticConstMacro(FixedImageDimension)>  TransformType;
+    itkGetStaticConstMacro(MovingImageDimension),
+    itkGetStaticConstMacro(FixedImageDimension)>  TransformType;
     typedef typename TransformType::Pointer         TransformPointer;
     typedef typename TransformType::InputPointType  InputPointType;
     typedef typename TransformType::OutputPointType OutputPointType;
     typedef typename TransformType::ParametersType  TransformParametersType;
     typedef typename TransformType::JacobianType    TransformJacobianType;
 
-/**  Type of the Interpolator Base class */
+    /**  Type of the Interpolator Base class */
     typedef InterpolateImageFunction<MovingImageType,
-      CoordinateRepresentationType>             InterpolatorType;
+    CoordinateRepresentationType>             InterpolatorType;
     typedef typename InterpolatorType::Pointer   InterpolatorPointer;
     typedef std::vector<InterpolatorPointer>    MultiInterpolatorType;
 
-///** Gaussian filter to compute the gradient of the Moving Image */
-//    typedef typename NumericTraits<MovingImagePixelType>::RealType
-//      RealType;
-//    typedef CovariantVector<RealType,
-//      itkGetStaticConstMacro(MovingImageDimension)> GradientPixelType;
-//    typedef Image<GradientPixelType,
-//      itkGetStaticConstMacro(MovingImageDimension)> GradientImageType;
-//    typedef SmartPointer<GradientImageType> GradientImagePointer;
-//    typedef GradientRecursiveGaussianImageFilter< MovingImageType,
-//      GradientImageType > GradientImageFilterType;
-//    typedef typename GradientImageFilterType::Pointer GradientImageFilterPointer;
+    ///** Gaussian filter to compute the gradient of the Moving Image */
+    //    typedef typename NumericTraits<MovingImagePixelType>::RealType
+    //      RealType;
+    //    typedef CovariantVector<RealType,
+    //      itkGetStaticConstMacro(MovingImageDimension)> GradientPixelType;
+    //    typedef Image<GradientPixelType,
+    //      itkGetStaticConstMacro(MovingImageDimension)> GradientImageType;
+    //    typedef SmartPointer<GradientImageType> GradientImagePointer;
+    //    typedef GradientRecursiveGaussianImageFilter< MovingImageType,
+    //      GradientImageType > GradientImageFilterType;
+    //    typedef typename GradientImageFilterType::Pointer GradientImageFilterPointer;
 
-/**  Type for the mask of the fixed image. Only pixels that are "inside"
+    /**  Type for the mask of the fixed image. Only pixels that are "inside"
      this mask will be considered for the computation of the metric */
     typedef ImageMaskSpatialObject< itkGetStaticConstMacro(FixedImageDimension) >
-      FixedImageMaskType;
+    FixedImageMaskType;
     typedef typename FixedImageMaskType::Pointer       FixedImageMaskPointer;
     typedef typename FixedImageMaskType::ConstPointer  FixedImageMaskConstPointer;
     typedef std::vector<FixedImageMaskPointer>    FixedMultiImageMaskType;
 
-///**  Type for the mask of the moving image. Only pixels that are "inside"
-//     this mask will be considered for the computation of the metric */
-//    typedef SpatialObject< itkGetStaticConstMacro(MovingImageDimension) >
-//      MovingImageMaskType;
-//    typedef typename MovingImageMaskType::Pointer      MovingImageMaskPointer;
-//    typedef typename MovingImageMaskType::ConstPointer MovingImageMaskConstPointer;
+    ///**  Type for the mask of the moving image. Only pixels that are "inside"
+    //     this mask will be considered for the computation of the metric */
+    //    typedef SpatialObject< itkGetStaticConstMacro(MovingImageDimension) >
+    //      MovingImageMaskType;
+    //    typedef typename MovingImageMaskType::Pointer      MovingImageMaskPointer;
+    //    typedef typename MovingImageMaskType::ConstPointer MovingImageMaskConstPointer;
 
-/**  Type of the measure. */
+    /**  Type of the measure. */
     typedef typename Superclass::MeasureType MeasureType;
 
-/**  Type of the derivative. */
+    /**  Type of the derivative. */
     typedef typename Superclass::DerivativeType DerivativeType;
 
-/**  Type of the parameters. */
+    /**  Type of the parameters. */
     typedef typename Superclass::ParametersType ParametersType;
 
-/** Type of the single-input metrics. */
+    /** Type of the single-input metrics. */
     typedef ImageToImageMetric<TFixedImage, TMovingImage>  MetricType;
     typedef typename MetricType::Pointer                   MetricPointer;
     typedef std::vector<MetricPointer>                     MultiMetricType;
 
-/** Set or get the Fixed Images.  */
+    /** Set or get the Fixed Images.  */
     itkSetConstStdVectorMacro(FixedMultiImage,FixedMultiImageType);
     itkGetConstStdVectorMacro(FixedMultiImage,FixedMultiImageType);
 
-/** Set or get the Moving Image.  */
+    /** Set or get the Moving Image.  */
     itkSetConstObjectMacro( MovingImage, MovingImageType );
     itkGetConstObjectMacro( MovingImage, MovingImageType );
 
-/** Set or get the Transform. */
+    /** Set or get the Transform. */
     itkSetObjectMacro( Transform, TransformType );
     itkGetConstObjectMacro( Transform, TransformType );
 
-/** Add, set or get the Interpolators. */
+    /** Add, set or get the Interpolators. */
     itkAddObjectToStdVectorMacro(Interpolator,InterpolatorType,MultiInterpolator);
     itkSetConstStdVectorMacro(MultiInterpolator,MultiInterpolatorType);
     itkGetConstStdVectorMacro(MultiInterpolator,MultiInterpolatorType);
 
-/** Set or get the region over which the metric will be computed */
+    /** Set or get the region over which the metric will be computed */
     itkSetConstStdVectorMacro(FixedMultiImageRegion,FixedMultiImageRegionType);
     itkGetConstStdVectorMacro(FixedMultiImageRegion,FixedMultiImageRegionType);
 
-///** Set/Get the moving image mask. */
-//  itkSetObjectMacro( MovingImageMask, MovingImageMaskType );
-//  itkSetConstObjectMacro( MovingImageMask, MovingImageMaskType );
-//  itkGetConstObjectMacro( MovingImageMask, MovingImageMaskType );
-//
+    ///** Set/Get the moving image mask. */
+    //  itkSetObjectMacro( MovingImageMask, MovingImageMaskType );
+    //  itkSetConstObjectMacro( MovingImageMask, MovingImageMaskType );
+    //  itkGetConstObjectMacro( MovingImageMask, MovingImageMaskType );
+    //
 
-/** Set or Get the fixed images' masks. */
+    /** Set or Get the fixed images' masks. */
     itkSetConstStdVectorMacro(FixedMultiImageMask,FixedMultiImageMaskType);
     itkGetConstStdVectorMacro(FixedMultiImageMask,FixedMultiImageMaskType);
 
-/** Set ot Get the step size used for derivative calculation */
+    /** Set ot Get the step size used for derivative calculation */
     itkSetMacro( DerivativeDelta, double);
     itkGetConstReferenceMacro( DerivativeDelta, double );
 
-///** Set or Get gradient computation. */
-//    itkSetMacro( ComputeGradient, bool);
-//    itkGetConstReferenceMacro( ComputeGradient, bool);
-//    itkBooleanMacro(ComputeGradient);
-//
-///** Computes the gradient image and assigns it to m_GradientImage */
-//    virtual void ComputeGradient();
-//
-///** Get Gradient Image. */
-//    itkGetConstObjectMacro( GradientImage, GradientImageType );
+    ///** Set or Get gradient computation. */
+    //    itkSetMacro( ComputeGradient, bool);
+    //    itkGetConstReferenceMacro( ComputeGradient, bool);
+    //    itkBooleanMacro(ComputeGradient);
+    //
+    ///** Computes the gradient image and assigns it to m_GradientImage */
+    //    virtual void ComputeGradient();
+    //
+    ///** Get Gradient Image. */
+    //    itkGetConstObjectMacro( GradientImage, GradientImageType );
 
-/** Set the parameters defining the Transform. */
+    /** Set the parameters defining the Transform. */
     void SetTransformParameters( const ParametersType & parameters ) const;
 
-/** Return the number of parameters required by the Transform */
+    /** Return the number of parameters required by the Transform */
     unsigned int GetNumberOfParameters(void) const
-      { return m_Transform->GetNumberOfParameters(); }
+    { return m_Transform->GetNumberOfParameters(); }
 
-/** Initialize the Metric by making sure that all the components
+    /** Initialize the Metric by making sure that all the components
   *  are present and plugged together correctly     */
-    virtual void Initialize(void) throw ( ExceptionObject );
+    virtual void Initialize(void) noexcept(false);
 
-    virtual void DoNumberRevision(void) const throw ( ExceptionObject );
-    virtual void DoConnectionRevision(void) const throw ( ExceptionObject );
-    virtual void DoFullRevision(void) const throw ( ExceptionObject )
-      { DoNumberRevision(); DoConnectionRevision();}
+    virtual void DoNumberRevision(void) const noexcept(false);
+    virtual void DoConnectionRevision(void) const noexcept(false);
+    virtual void DoFullRevision(void) const noexcept(false)
+    { DoNumberRevision(); DoConnectionRevision();}
 
-/** Get the derivatives of the match measure. */
+    /** Get the derivatives of the match measure. */
     virtual void GetDerivative( const TransformParametersType & parameters,
-      DerivativeType & derivative ) const;
+                                DerivativeType & derivative ) const;
 
-/**  Get the value for single valued optimizers. */
+    /**  Get the value for single valued optimizers. */
     virtual MeasureType GetValue( const TransformParametersType & parameters ) const;
 
-  protected:
+
+
+    /** Set the data object vector with the data from itkMultiImageToImageRegistration*/
+    void setInputsFromProcessObject(DataObject ** inputs);
+    /** Get data object vector with the inputs from the process object */
+    DataObject** getInputsFromProcessObject();
+
+
+protected:
     MultiImageToImageMetric();
     virtual ~MultiImageToImageMetric();
     void PrintSelf(std::ostream& os, Indent indent) const;
 
-/** Create a new instance of an individual metric. */
+    /** Create a new instance of an individual metric. */
     virtual MetricPointer NewSingleMetric()=0;
 
     FixedMultiImageType         m_FixedMultiImage;
@@ -229,14 +249,20 @@ namespace itk
 
     double                      m_DerivativeDelta;
 
-  private:
+private:
+
+
+
     MultiImageToImageMetric(const Self&); //purposely not implemented
     void operator=(const Self&);          //purposely not implemented
 
     FixedMultiImageRegionType m_FixedMultiImageRegion;
 
     TimeStamp m_InitializationTime;
-  };
+};
+
+//initialize the inputsProcessObject
+//DataObject ** inputsProcessObject = 0;
 
 } //namespace itk
 

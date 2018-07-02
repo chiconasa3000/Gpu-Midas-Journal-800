@@ -45,7 +45,7 @@ MultiImageToImageMetric<TFixedImage,TMovingImage>::
  * DoConnectionRevision
  */
 template <class TFixedImage, class TMovingImage>
-void   MultiImageToImageMetric<TFixedImage,TMovingImage>::DoConnectionRevision( ) const throw ( ExceptionObject )
+void   MultiImageToImageMetric<TFixedImage,TMovingImage>::DoConnectionRevision( ) const noexcept(false)
 {
     const unsigned int FImgTotal = m_FixedMultiImage.size();
 
@@ -103,7 +103,7 @@ void   MultiImageToImageMetric<TFixedImage,TMovingImage>::DoConnectionRevision( 
  */
 template <class TFixedImage, class TMovingImage>
 void MultiImageToImageMetric<TFixedImage,TMovingImage>
-::DoNumberRevision( ) const throw ( ExceptionObject )
+::DoNumberRevision( ) const noexcept(false)
 {
     //Does the moving image exist?
     if( !m_MovingImage )
@@ -286,7 +286,7 @@ void MultiImageToImageMetric<TFixedImage,TMovingImage>
 //the most important function (OJO)
 template <class TFixedImage, class TMovingImage>
 void MultiImageToImageMetric<TFixedImage,TMovingImage>
-::Initialize(void) throw ( ExceptionObject )
+::Initialize(void) noexcept(false)
 {
     //THE METRIC is a VECTOR of METRICS is from Image to Image Metric
     //of the vector of fixed images obtain the size
@@ -309,6 +309,7 @@ void MultiImageToImageMetric<TFixedImage,TMovingImage>
         m_MultiMetric.pop_back(); // calls 'delete' on last element
     }
 
+    //It instance every metric in this case the normalized gradient correlation
     //allocate every metric
     for( unsigned int fImgNum=0; fImgNum<FImgTotal; fImgNum++ )
     {
@@ -382,6 +383,20 @@ void MultiImageToImageMetric<TFixedImage,TMovingImage>
     this->InvokeEvent( InitializeEvent() );
 }
 
+/** Set the data object vector with the data from itkMultiImageToImageRegistration*/
+template <class TFixedImage, class TMovingImage>
+void MultiImageToImageMetric<TFixedImage,TMovingImage>::
+setInputsFromProcessObject(DataObject ** inputs)
+{
+    inputsProcessObject = inputs;
+}
+/** Get data object vector with the inputs from the process object */
+template <class TFixedImage, class TMovingImage>
+DataObject** MultiImageToImageMetric<TFixedImage,TMovingImage>
+::getInputsFromProcessObject()
+{
+    return inputsProcessObject;
+}
 
 //
 // * Compute the gradient image and assign it to m_GradientImage.
