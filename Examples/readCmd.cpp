@@ -52,14 +52,14 @@ int main(){
 		string focal2Point = "-1990 0 0 ";
 		strcat(comman, focal2Point.c_str());
 		string stepTolerance = "0.08 ";
-
 		strcat(comman, stepTolerance.c_str());
+
 		ostringstream ostr;
 		ostr << stepTolerances[i];
   		std::string strValue = ostr.str();
 		string stepSize = ostr.str()+" ";
-		
 		strcat(comman, stepSize.c_str());
+
 		string schedule = "4 6 4 2 1 ";
 		strcat(comman, schedule.c_str());
         string outputDir ="../Gpu-Midas-Journal-800/bestData/outDirNewUmbral";

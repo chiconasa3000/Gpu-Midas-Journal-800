@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.6)
 
 include(${CMAKE_SOURCE_DIR}/IJMacros.txt)
 
-project(itkMultiImageRegistration)
+project(GPUitkMultiImageRegistration)
 
 #The following lines are required to use Dart
 #enable_testing()
@@ -32,7 +32,7 @@ file(GLOB TXX_FILES *.txx)
 #set(TXX_DIR "/home/cris/Gpu-Midas-Journal-800")
 #set(FILES_TXX ${TXX_DIR}/itkNormalizedGradientCorrelationImageToImageMetric.txx)
 
-set(GPU_DIR "/home/cris/BasicPrograms/InsightToolkit-4.12.2/Modules/Filtering/GPUImageFilterBase/include")
+set(GPU_DIR "/home/citesoft01/BasicPrograms/InsightToolkit-4.13.0/Modules/Filtering/GPUImageFilterBase/include")
 set(FILES_GPU ${GPU_DIR}/itkGPUNeighborhoodOperatorImageFilter.hxx ${GPU_DIR}/itkGPUNeighborhoodOperatorImageFilter.h)
 
 set(HeaderFiles
@@ -66,8 +66,8 @@ globalsvars.h
 #add_executable(MultiImageSearch Examples/MultiImageSearch.cxx)
 #target_link_libraries(MultiImageSearch ${Libraries})
 
-#add_executable(ReadCmd Examples/readCmd.cpp)
-#target_link_libraries(ReadCmd ${Libraries})
+add_executable(ReadCmd Examples/readCmd.cpp)
+target_link_libraries(ReadCmd ${Libraries})
 
 add_executable(MultiImageRegistration Examples/MultiImageRegistration.cxx  ${FILES_GPU} ${HeaderFiles})
 target_link_libraries(MultiImageRegistration ${Libraries})

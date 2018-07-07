@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include "itkImageDuplicator.h"
 #include "itkImageRegionIterator.h"
+#include "itkPasteImageFilter.h"
 
 namespace itk
 {
@@ -63,28 +64,81 @@ void NormalizedGradientCorrelationImageToImageMetric<TFixedImage,TMovingImage>
 
         typedef itk::Image< short, 3u >  ImageType;
         //imagen base que se instancia como imagen GPU
-        ImageType::Pointer image = itk::GPUImage<short,3u>::New().GetPointer();
+        ImageType::Pointer destImage = itk::GPUImage<short,3u>::New().GetPointer();
         //ImageType *image = itk::GPUImage<short,3u>::New();
 
-        DataObject * p = &itk::inputsProcessObject[1][0];
-        p->Print(std::cout);
+        DataObject * dataSourceImage = &itk::inputsProcessObject[1][0];
+        dataSourceImage->Print(std::cout);
 
-        ImageType::Pointer normalImage = ImageType::New();
-        normalImage->CopyInformation(&itk::inputsProcessObject[1][0]);
-        normalImage->SetRegions(normalImage->GetLargestPossibleRegion());
-        normalImage->Allocate();
-        normalImage->Update();
+        ImageType::Pointer sourceImage = ImageType::New();
+        //copiando informacion de region de en la imagen destino
+        sourceImage->CopyInformation(&itk::inputsProcessObject[1][0]);
 
-        pointerWriter writer = WriterType::New();
-         writer->SetFileName("normalImageGPU.mha");
-         writer->SetInput(normalImage);
-         writer->Update();
+        //Inicio de indice de pixel a partir de donde se copia
+        ImageType::IndexType index;
+        index[0] = 0;
+        index[1] = 0;
 
-        /*typedef itk::ImageDuplicator< ImageType > DuplicatorType;
+        //la actualizacion con destImage copiando sus dimensiones de la sourceimage
+        destImage->SetRegions(sourceImage->GetLargestPossibleRegion());
+        destImage->Allocate();
+        destImage->Update();
+
+        //la fuente es actualizada despues de haber copiado la informacion
+        sourceImage->Update();
+
+        //usando el filtro
+        using FilterType = itk::PasteImageFilter<ImageType, ImageType>;
+        FilterType::Pointer filter = FilterType::New();
+        //peligro con el getoutput
+        filter->SetSourceImage(sourceImage);
+        filter->SetSourceRegion(sourceImage->GetLargestPossibleRegion());
+        filter->SetDestinationImage(destImage);
+        filter->SetDestinationIndex(index);
+
+        //considerando la parte de la imagen de destino
+        //destImage->SetRegions(sourceImage->GetLargestPossibleRegion());
+        //destImage->Allocate();
+        //destImage->Update();
+
+        //using WriterType = itk::ImageFileWriter< TFixedImage >;
+        sourceImagef = WriterType::New();
+        destImagef = WriterType::New();
+        resultImagefFilter = WriterType::New();
+        resultImagefGpu = WriterType::New();
+
+        //Write source image
+        sourceImagef->SetFileName("sourceImage.mha");
+        sourceImagef->SetInput(sourceImage);
+        sourceImagef->Update();
+
+        //Write destiny image
+        destImagef->SetFileName("destImage.mha");
+        destImagef->SetInput(destImage);
+        destImagef->Update();
+
+        //Write the result from filter
+        resultImagefFilter->SetFileName("resultImagefFilter.mha");
+        resultImagefFilter->SetInput(destImage);
+        resultImagefFilter->Update();
+
+        //copiar la salida y guardar en la imagen destino
+        ImageType::Pointer resultImage = itk::GPUImage<short,3u>::New().GetPointer();
+        resultImage = filter->GetOutput();
+
+        //Write the result gpu
+        resultImagefGpu->SetFileName("resultImagefGpu.mha");
+        resultImagefGpu->SetInput(destImage);
+        resultImagefGpu->Update();
+
+        //CONSEGUIR LA IMAGEN DESTINO
+
+        /*
+        typedef itk::ImageDuplicator< ImageType > DuplicatorType;
          DuplicatorType::Pointer duplicator = DuplicatorType::New();
          duplicator->SetInputImage(this->GetFixedImage());
          duplicator->Update();
-         ImageType::Pointer clonedImage = duplicator->GetOutput();*/
+         ImageType::Pointer clonedImage = duplicator->GetOutput();
 
         image->SetRegions(normalImage->GetLargestPossibleRegion());
         image->Allocate();
@@ -99,7 +153,7 @@ void NormalizedGradientCorrelationImageToImageMetric<TFixedImage,TMovingImage>
             outputIterator.Set(inputIterator.Get());
             ++inputIterator;
             ++outputIterator;
-        }
+        }*/
 
         //Data object puesto a un puntero
         //DataObject * p = &itk::inputsProcessObject[1][0];
@@ -107,7 +161,7 @@ void NormalizedGradientCorrelationImageToImageMetric<TFixedImage,TMovingImage>
         //Copiar la data del dataObject a esta imagen especial
         //image->CopyInformation(p);
 
-        m_ptrosGpuFixedImages[dim] = dynamic_cast< const itk::GPUImage<short,3u> *>(image.GetPointer());
+        m_ptrosGpuFixedImages[dim] = dynamic_cast< const itk::GPUImage<short,3u> *>(resultImage.GetPointer());
         //m_ptrosGpuFixedImages[dim] = dynamic_cast< const itk::GPUImage<short,3u> *>(p);
         m_FixedNeighborFilters[dim] = GpuMovingNeighboorFilterType::New();
         m_FixedNeighborFilters[dim]->OverrideBoundaryCondition(&m_FixedBoundaryCondition );

@@ -121,7 +121,10 @@ public:
   //typename  ptrGpuOutputImage;
 
   typedef itk::ImageFileWriter< TFixedImage  > WriterType;
-  typedef typename WriterType::Pointer pointerWriter;
+  typename WriterType::Pointer sourceImagef;
+  typename WriterType::Pointer destImagef;
+  typename WriterType::Pointer resultImagefFilter;
+  typename WriterType::Pointer resultImagefGpu;
 
 
   typedef RealType RealOutputPixelType;

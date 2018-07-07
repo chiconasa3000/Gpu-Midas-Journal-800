@@ -14,7 +14,7 @@
 #include <itkSubtractImageFilter.h>
 #include <itkTransformFileReader.h>
 #include <itkTransformFileWriter.h>
-
+#include "itkTimeProbe.h"
 #include "itkNormalizedGradientCorrelationMultiImageToImageMetric.h"
 #include "itkMultiResolutionMultiImageToImageRegistrationMethod.h"
 #include "itkPatchedRayCastInterpolateImageFunction.h"
@@ -458,7 +458,14 @@ int main(int argc, char* argv[] )
     {
         //apply the registration (OJO)
         //registration->Print( std::cout );
+
+        //measure the total time
+        itk::TimeProbe cputimer;
+        cputimer.Start();
         registration->Update();
+        cputimer.Stop();
+        std::cout << "CPU Registration took " << cputimer.GetMean() << " seconds.\n" << std::endl;
+        std::cout << "TotalTime Process Object: "<< registration->GetMTime()<<std::endl;
     }
     catch( itk::ExceptionObject & e )
     {
