@@ -22,7 +22,6 @@
 #define itkNewSingleMetricMacro(type) \
     virtual typename Superclass::MetricPointer NewSingleMetric (void) \
 { \
-    itkDebugMacro("Contruyendo Normalized Gradient"<<#type); \
     return static_cast<type*>(type::New().GetPointer()); \
     }
 

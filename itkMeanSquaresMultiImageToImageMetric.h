@@ -31,7 +31,7 @@ namespace itk{
     typedef MeanSquaresImageToImageMetric<TFixedImage,TMovingImage> MetricType;
 
   protected:
-    MeanSquaresMultiImageToImageMetric() { itkDebugMacro("Constructor"); }
+    MeanSquaresMultiImageToImageMetric() { itkDebugOnMacro("Constructor"); }
     virtual ~MeanSquaresMultiImageToImageMetric() {};
 
     itkNewSingleMetricMacro(MetricType);

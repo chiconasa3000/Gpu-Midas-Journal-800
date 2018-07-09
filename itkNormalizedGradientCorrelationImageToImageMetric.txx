@@ -51,7 +51,7 @@ void NormalizedGradientCorrelationImageToImageMetric<TFixedImage,TMovingImage>
 
     //para el error en tiempo de ejecucion de Input Primary is required  but not set
     //this->SetNumberOfRequiredInputs(2);
-
+    typedef itk::Image< short, 3u >  ImageType;
     for (unsigned int dim=0; dim<m_MaxDimension; dim++)
     {
         //el operador es sobel no es gaussiano
@@ -62,44 +62,56 @@ void NormalizedGradientCorrelationImageToImageMetric<TFixedImage,TMovingImage>
         //cada sobel filtro como puntero es instanciado
         //debemos tener cuidado con el tipo de puntero
 
-        typedef itk::Image< short, 3u >  ImageType;
+
         //imagen base que se instancia como imagen GPU
         ImageType::Pointer destImage = itk::GPUImage<short,3u>::New().GetPointer();
         //ImageType *image = itk::GPUImage<short,3u>::New();
 
         DataObject * dataSourceImage = &itk::inputsProcessObject[1][0];
-        dataSourceImage->Print(std::cout);
+        //dataSourceImage->Print(std::cout);
 
-        ImageType::Pointer sourceImage = ImageType::New();
+        //ImageType::Pointer sourceImage = ImageType::New();
+        ImageType::ConstPointer sourceImage = dynamic_cast<const itk::Image<short,3u> *>(this->GetFixedImage());
         //copiando informacion de region de en la imagen destino
-        sourceImage->CopyInformation(&itk::inputsProcessObject[1][0]);
+        //sourceImage->CopyInformation(&itk::inputsProcessObject[1][0]);
+        destImage->CopyInformation(sourceImage);
+        //sourceImage->CopyInformation(this->GetFixedImage());
 
-        //Inicio de indice de pixel a partir de donde se copia
-        ImageType::IndexType index;
-        index[0] = 0;
-        index[1] = 0;
+        //ImageType::SpacingType spacingSource;
 
+        //se copia tanto el indice de inicio y su size aunque no en el buffer
         //la actualizacion con destImage copiando sus dimensiones de la sourceimage
         destImage->SetRegions(sourceImage->GetLargestPossibleRegion());
+        destImage->SetBufferedRegion(sourceImage->GetLargestPossibleRegion());
+        destImage->SetSpacing(sourceImage->GetSpacing());
+        destImage->SetOrigin(sourceImage->GetOrigin());
         destImage->Allocate();
         destImage->Update();
 
+        itk::ImageRegionConstIterator<ImageType> inputIterator(sourceImage, sourceImage->GetLargestPossibleRegion());
+        itk::ImageRegionIterator<ImageType> outputIterator(destImage, destImage->GetLargestPossibleRegion());
+
+        while(!inputIterator.IsAtEnd())
+        {
+            outputIterator.Set(inputIterator.Get());
+            ++inputIterator;
+            ++outputIterator;
+        }
+
+
         //la fuente es actualizada despues de haber copiado la informacion
-        sourceImage->Update();
+        //sourceImage->Update();
 
         //usando el filtro
-        using FilterType = itk::PasteImageFilter<ImageType, ImageType>;
+        /*using FilterType = itk::PasteImageFilter<ImageType, ImageType>;
         FilterType::Pointer filter = FilterType::New();
         //peligro con el getoutput
         filter->SetSourceImage(sourceImage);
         filter->SetSourceRegion(sourceImage->GetLargestPossibleRegion());
         filter->SetDestinationImage(destImage);
         filter->SetDestinationIndex(index);
+        filter->Update();*/
 
-        //considerando la parte de la imagen de destino
-        //destImage->SetRegions(sourceImage->GetLargestPossibleRegion());
-        //destImage->Allocate();
-        //destImage->Update();
 
         //using WriterType = itk::ImageFileWriter< TFixedImage >;
         sourceImagef = WriterType::New();
@@ -118,18 +130,18 @@ void NormalizedGradientCorrelationImageToImageMetric<TFixedImage,TMovingImage>
         destImagef->Update();
 
         //Write the result from filter
-        resultImagefFilter->SetFileName("resultImagefFilter.mha");
-        resultImagefFilter->SetInput(destImage);
-        resultImagefFilter->Update();
+        //resultImagefFilter->SetFileName("resultImagefFilter.mha");
+        //resultImagefFilter->SetInput(filter->GetOutput());
+        //resultImagefFilter->Update();
 
         //copiar la salida y guardar en la imagen destino
-        ImageType::Pointer resultImage = itk::GPUImage<short,3u>::New().GetPointer();
-        resultImage = filter->GetOutput();
+        //ImageType::Pointer resultImage = itk::GPUImage<short,3u>::New().GetPointer();
+        //resultImage = filter->GetOutput();
 
         //Write the result gpu
-        resultImagefGpu->SetFileName("resultImagefGpu.mha");
-        resultImagefGpu->SetInput(destImage);
-        resultImagefGpu->Update();
+        //resultImagefGpu->SetFileName("resultImagefGpu.mha");
+        //resultImagefGpu->SetInput(resultImage);
+        //resultImagefGpu->Update();
 
         //CONSEGUIR LA IMAGEN DESTINO
 
@@ -161,7 +173,7 @@ void NormalizedGradientCorrelationImageToImageMetric<TFixedImage,TMovingImage>
         //Copiar la data del dataObject a esta imagen especial
         //image->CopyInformation(p);
 
-        m_ptrosGpuFixedImages[dim] = dynamic_cast< const itk::GPUImage<short,3u> *>(resultImage.GetPointer());
+        m_ptrosGpuFixedImages[dim] = dynamic_cast< const itk::GPUImage<short,3u> *>(destImage.GetPointer());
         //m_ptrosGpuFixedImages[dim] = dynamic_cast< const itk::GPUImage<short,3u> *>(p);
         m_FixedNeighborFilters[dim] = GpuMovingNeighboorFilterType::New();
         m_FixedNeighborFilters[dim]->OverrideBoundaryCondition(&m_FixedBoundaryCondition );
@@ -187,9 +199,30 @@ void NormalizedGradientCorrelationImageToImageMetric<TFixedImage,TMovingImage>
     for (unsigned int dim=0; dim < m_MaxDimension; dim++)
     {
         //std::cout<<"dimMoving: "<<dim<<std::endl;
+        //creamos una imagen especial de gpu copiando la informacion de la salida del filtro
+        ImageType::ConstPointer sourceMovingImage = dynamic_cast<const itk::Image<short,3u> *>(m_ResampleImageFilter->GetOutput());
+        ImageType::Pointer destMovingImage = itk::GPUImage<short,3u>::New().GetPointer();
+
+        //copiando datos de source to destiny
+        destMovingImage->SetRegions(sourceMovingImage->GetLargestPossibleRegion());
+        destMovingImage->SetBufferedRegion(sourceMovingImage->GetLargestPossibleRegion());
+        destMovingImage->SetSpacing(sourceMovingImage->GetSpacing());
+        destMovingImage->SetOrigin(sourceMovingImage->GetOrigin());
+        destMovingImage->Allocate();
+        destMovingImage->Update();
+
+        itk::ImageRegionConstIterator<ImageType> inputMovingIterator(sourceMovingImage, sourceMovingImage->GetLargestPossibleRegion());
+        itk::ImageRegionIterator<ImageType> outputMovingIterator(destMovingImage, destMovingImage->GetLargestPossibleRegion());
+
+        while(!inputMovingIterator.IsAtEnd())
+        {
+            outputMovingIterator.Set(inputMovingIterator.Get());
+            ++inputMovingIterator;
+            ++outputMovingIterator;
+        }
 
         //primero instanciamos el filtro sobel del tipo de imagen
-        m_ptrosGpuMovingImages[dim] = dynamic_cast<const GpuMovingImageType *>(m_ResampleImageFilter->GetOutput());
+        m_ptrosGpuMovingImages[dim] = dynamic_cast<const GpuMovingImageType *>(destMovingImage.GetPointer());
         m_MovingNeighborFilters[dim] = GpuMovingNeighboorFilterType::New();
         m_MovingNeighborFilters[dim]->OverrideBoundaryCondition( &m_MovingBoundaryCondition );
         m_MovingNeighborFilters[dim]->SetOperator( m_SobelOperators[dim] );

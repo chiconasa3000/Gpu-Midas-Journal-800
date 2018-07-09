@@ -31,7 +31,7 @@ namespace itk{
     typedef NormalizedGradientCorrelationImageToImageMetric< TFixedImage, TMovingImage > MetricType;
 
   protected:
-    NormalizedGradientCorrelationMultiImageToImageMetric() {  itkDebugMacro("Constructor"); }
+    NormalizedGradientCorrelationMultiImageToImageMetric() {  itkDebugOnMacro("Constructor"); }
     virtual ~NormalizedGradientCorrelationMultiImageToImageMetric() {};
 
     itkNewSingleMetricMacro(MetricType);

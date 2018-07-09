@@ -242,7 +242,7 @@ void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
     //and use the macros in order to set multiples fixed images, regions and interpolators
 
     // Setup the metric
-    m_MultiMetric->DebugOn();
+    //m_MultiMetric->DebugOn();
     m_MultiMetric->SetMovingImage( m_MovingImage );
     m_MultiMetric->SetFixedMultiImage( m_FixedMultiImage ); //vector of fixed images
     m_MultiMetric->SetTransform( m_Transform );

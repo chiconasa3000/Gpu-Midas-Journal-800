@@ -31,7 +31,7 @@ namespace itk{
     typedef GradientDifferenceSingleImageToImageMetric< TFixedImage, TMovingImage > MetricType;
 
   protected:
-    GradientDifferenceMultiImageToImageMetric() { itkDebugMacro("Constructor"); }
+    GradientDifferenceMultiImageToImageMetric() { itkDebugOnMacro("Constructor"); }
     virtual ~GradientDifferenceMultiImageToImageMetric() {};
 
     itkNewSingleMetricMacro(MetricType);
