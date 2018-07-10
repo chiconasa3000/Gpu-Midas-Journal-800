@@ -39,7 +39,7 @@ MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
     this->ProcessObject::SetNthOutput( 0, transformDecorator.GetPointer() );
 
     //we can play with this
-    this->SetNumberOfThreads( 3 );
+    this->SetNumberOfThreads( 1 );
     this->GetMultiThreader()->SetNumberOfThreads( this->GetNumberOfThreads() );
 }
 
@@ -147,7 +147,7 @@ void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 //initialize the registration
 template < typename TFixedImage, typename TMovingImage >
 void MultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
-::Initialize() noexcept(false)
+::Initialize() throw(ExceptionObject)
 {
     //check moving image
     if( !m_MovingImage )

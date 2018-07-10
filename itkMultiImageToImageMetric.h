@@ -202,11 +202,11 @@ public:
 
     /** Initialize the Metric by making sure that all the components
   *  are present and plugged together correctly     */
-    virtual void Initialize(void) noexcept(false);
+    virtual void Initialize(void) throw(ExceptionObject);
 
-    virtual void DoNumberRevision(void) const noexcept(false);
-    virtual void DoConnectionRevision(void) const noexcept(false);
-    virtual void DoFullRevision(void) const noexcept(false)
+    virtual void DoNumberRevision(void) const throw (ExceptionObject);
+    virtual void DoConnectionRevision(void) const throw(ExceptionObject);
+    virtual void DoFullRevision(void) const throw(ExceptionObject)
     { DoNumberRevision(); DoConnectionRevision();}
 
     /** Get the derivatives of the match measure. */

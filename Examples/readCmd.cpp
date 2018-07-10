@@ -32,26 +32,27 @@ string GetStdoutFromCommand(string cmd){
 
 int main(){
 	//vector of step tolerances
-	std::vector<float> stepTolerances={3.0};
+	static const int vssize[]={2.0};
+	std::vector<float> stepTolerances(vssize,vssize + sizeof(vssize)/sizeof(vssize[0]));
 
 	for(int i=0;i <stepTolerances.size(); i++){
 
 		char comman[200];
         string command = "./MultiImageRegistration ";
 		strcpy(comman, command.c_str());
-        string movingImage = "../Gpu-Midas-Journal-800/bestData/pelvisSegmIntensity.mha ";
+        string movingImage = "../bestData/pelvisSegmIntensity.mha ";
 		strcat(comman,movingImage.c_str());
 		string numImages = "2 ";
 		strcat(comman, numImages.c_str());
-        string fixed1Image = "../Gpu-Midas-Journal-800/bestData/pelvisDRRG0LspCenter.mha ";
+        string fixed1Image = "../bestData/pelvisDRRG0LspCenter.mha ";
 		strcat(comman, fixed1Image.c_str());
 		string focal1Point = "0 1990 0 ";
 		strcat(comman, focal1Point.c_str());
-        string fixed2Image = "../Gpu-Midas-Journal-800/bestData/pelvisDRRG90PsrCenter.mha ";
+        string fixed2Image = "../bestData/pelvisDRRG90PsrCenter.mha ";
 		strcat(comman, fixed2Image.c_str());
 		string focal2Point = "-1990 0 0 ";
 		strcat(comman, focal2Point.c_str());
-		string stepTolerance = "0.08 ";
+		string stepTolerance = "0.01 ";
 		strcat(comman, stepTolerance.c_str());
 
 		ostringstream ostr;
@@ -62,14 +63,16 @@ int main(){
 
 		string schedule = "4 6 4 2 1 ";
 		strcat(comman, schedule.c_str());
-        string outputDir ="../Gpu-Midas-Journal-800/bestData/outDirNewUmbral";
+        string outputDir ="../bestData/outDirNewUmbral";
 		strcat(comman, outputDir.c_str());
+	string transforminput = "../bestData/outDirNewUmbral/outTransform_0.01_2.txt";
+		strcat(comman, transforminput.c_str());
 
 		string outputTextRegistration = GetStdoutFromCommand(comman);
 		
 		//el archivo del log tendra los parametros que fueron usados
 		char nameLogRegistro[100];
-		string cabezera = "LogRegisterIteration_";
+		string cabezera = "../bestData/outDirNewUmbral/LogRegisterIteration_";
 		strcpy(nameLogRegistro, cabezera.c_str());
 
 		//numero de imagenes

@@ -37,7 +37,7 @@ MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
 //very important method
 template < typename TFixedImage, typename TMovingImage >
 void MultiResolutionMultiImageToImageRegistrationMethod<TFixedImage,TMovingImage>
-::Initialize() noexcept(false)
+::Initialize() throw(ExceptionObject)
 {
     std::cout<<"CurrentLevel: "<<m_CurrentLevel<<std::endl;
     //the superclass is initialize (OJO)

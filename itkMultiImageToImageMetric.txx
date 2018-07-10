@@ -45,7 +45,7 @@ MultiImageToImageMetric<TFixedImage,TMovingImage>::
  * DoConnectionRevision
  */
 template <class TFixedImage, class TMovingImage>
-void   MultiImageToImageMetric<TFixedImage,TMovingImage>::DoConnectionRevision( ) const noexcept(false)
+void   MultiImageToImageMetric<TFixedImage,TMovingImage>::DoConnectionRevision( ) const throw(ExceptionObject)
 {
     const unsigned int FImgTotal = m_FixedMultiImage.size();
 
@@ -103,7 +103,7 @@ void   MultiImageToImageMetric<TFixedImage,TMovingImage>::DoConnectionRevision( 
  */
 template <class TFixedImage, class TMovingImage>
 void MultiImageToImageMetric<TFixedImage,TMovingImage>
-::DoNumberRevision( ) const noexcept(false)
+::DoNumberRevision( ) const throw(ExceptionObject)
 {
     //Does the moving image exist?
     if( !m_MovingImage )
@@ -286,7 +286,7 @@ void MultiImageToImageMetric<TFixedImage,TMovingImage>
 //the most important function (OJO)
 template <class TFixedImage, class TMovingImage>
 void MultiImageToImageMetric<TFixedImage,TMovingImage>
-::Initialize(void) noexcept(false)
+::Initialize(void) throw(ExceptionObject)
 {
     //THE METRIC is a VECTOR of METRICS is from Image to Image Metric
     //of the vector of fixed images obtain the size
