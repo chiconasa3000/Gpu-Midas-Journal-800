@@ -63,9 +63,9 @@ int main(){
 
 		string schedule = "4 6 4 2 1 ";
 		strcat(comman, schedule.c_str());
-        string outputDir ="../bestData/outDirNewUmbral";
+        string outputDir ="../bestData/outDirNewUmbral ";
 		strcat(comman, outputDir.c_str());
-	string transforminput = "../bestData/outDirNewUmbral/outTransform_0.01_2.txt";
+	string transforminput = "../bestData/outDirNewUmbral/outTransform_0.01_2.txt ";
 		strcat(comman, transforminput.c_str());
 
 		string outputTextRegistration = GetStdoutFromCommand(comman);
